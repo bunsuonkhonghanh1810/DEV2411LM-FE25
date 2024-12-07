@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px 15px;
+            border: 2px solid #d9d9d9;
+        }
+        th {
+            text-align: left;
+        }
+        img {
+            object-fit: contain;
+        }
+        p {
+            margin: 0;
+        }
+        tbody > tr > :nth-child(8) {
+            color: #6AB68C;
+        }
+        tbody > tr > :nth-child(1) {
+            text-align: right;
+        }
+        td > div > div > img {
+            display: inline-block; 
+            filter: invert(1); 
+        }
+        td > div > div {
+            display: flex;
+            align-items: center;
+        }
+        tbody td > div > :nth-child(1) {
+            background-color: #3BAEA3;
+        }
+        tbody td > div > :nth-child(2) {
+            background-color: #CAA758;
+        }
+        tbody td > div > :nth-child(3) {
+            background-color: #D06A6E;
+        }
+        thead > tr, tbody > :nth-child(2), tbody > :nth-child(4), tbody > :nth-child(6), tbody > :nth-child(8), tbody > :nth-child(10), tfoot > tr {
+            background-color: #f8f8f8;
+        }
+        tbody > :nth-child(1), tbody > :nth-child(3), tbody > :nth-child(5), tbody > :nth-child(7), tbody > :nth-child(9), tbody > :nth-child(11) {
+            background-color: #f0f0f0;
+        }
+        #container {
+            background-color: #3BAEA3;
+        }
+        #container:hover {
+            background-color: #33978d;
+        }
+        tbody > tr > :nth-child(4), tbody > tr > :nth-child(5) {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: inline-block;">
+        <div style="display: flex; justify-content: space-between; padding: 0 0 5px 0;">
+            <select style="height: 35.6px; width: 80px; text-align: center; border: 2px solid #d9d9d9;" name="number" id="number">
+                <option value="15">15</option>
+            </select>
+            <div style="display: flex;">
+                <input style="width: 240px; height: 35.6px; border: 2px solid #d9d9d9; padding: 0 10px;" type="text" name="search" id="search" placeholder="Nhập tiêu đề tìm kiếm -> Nhấn Enter">
+                <div id="container" style="display: flex; align-items: center; margin-left: 3px;">
+                    <p style="color: white; font-size: 20px; font-family: 'Arial Black', sans-serif; margin-left: 5px;">+</p>
+                    <p style="color: white; margin: 0 8px 0 3px;">Thêm mới</p>
+                </div>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th height="35.6">.No</th>
+                    <th>Mã</th>
+                    <th width="240">Tên sản phẩm</th>
+                    <th width="170">Giá cũ</th>
+                    <th width="170">Giá mới</th>
+                    <th width="150">Ngày cập nhật</th>
+                    <th width="120">Lượt xem</th>
+                    <th width="160">Trạng thái</th>
+                    <th>
+                        <div style="display: flex; align-items: center;">
+                            <img style="margin-right: 5px; width: 18px;" src="logs.png" alt="">
+                            <p>Tác vụ</p>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>P002</td>
+                    <td>Bàn uống nước</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>26/8/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>P012</td>
+                    <td>Giường châu âu</td>
+                    <td>25999000</td>
+                    <td>22999000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>P011</td>
+                    <td>Kệ đầu giường</td>
+                    <td>20899000</td>
+                    <td>18899000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>P010</td>
+                    <td>Giường gỗ</td>
+                    <td>20999000</td>
+                    <td>18999000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>P009</td>
+                    <td>Tủ quần áo</td>
+                    <td>15999000</td>
+                    <td>12999000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>P007</td>
+                    <td>Kể để đồ</td>
+                    <td>15999000</td>
+                    <td>12999000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>P008</td>
+                    <td>Kệ TV</td>
+                    <td>15999000</td>
+                    <td>12899000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>P006</td>
+                    <td>BÀN UỐNG NƯỚC 2</td>
+                    <td>3999000</td>
+                    <td>3999000</td>
+                    <td>31/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>P003</td>
+                    <td>Giường hộp thiết kế sang trọng tiện ích</td>
+                    <td>8999000</td>
+                    <td>5999000</td>
+                    <td>28/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>P005</td>
+                    <td>Bàn ăn nhà bếp sang trọng</td>
+                    <td>9870000</td>
+                    <td>9899000</td>
+                    <td>28/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>P001</td>
+                    <td>Bàn tiếp khách</td>
+                    <td>12999000</td>
+                    <td>9999000</td>
+                    <td>27/7/2020</td>
+                    <td>0</td>
+                    <td>Hiển thị</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 5px">
+                            <div><img src="info.png" alt=""></div>
+                            <div><img src="square-pen.png" alt=""></div>
+                            <div><img src="trash.png" alt=""> </div>  
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9">
+                        <div>
+                            <b>Tổng số có: <span style="color: white; background-color: #D06A6E; padding: 0 7px;">11</span> sản phẩm</b>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div style="display: flex; justify-content: space-between; padding-top: 20px;">
+            <p>Trang 1 / 1</p>
+            <p style="padding:  4.8px 10px; background-color: #337AB7; color: white;">1</p>
+        </div>
+    </div>
+</body>
+</html>
