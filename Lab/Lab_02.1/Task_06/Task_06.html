@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            color: rgb(123, 127, 127);
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+        table {
+            margin: 0 auto;
+            border: 2px solid #d9d9d9;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        thead {
+            width: 100%;
+        }
+        p, span {
+            margin: 15px 0 5px 15px;
+        }
+        input[type="text"], textarea {
+            margin: 0 15px 0 15px;
+            width: 420px;
+            border: 1px solid #d9d9d9;
+            padding: 8px;
+            font-size: 16px;
+        }
+        textarea {
+            margin-bottom: 15px;
+        }
+        input[type="radio"] {
+            margin-left: 20px;
+        }
+        hr {
+            width: 420px;
+            margin: 30px 15px 12px 15px;    
+        }
+        img {
+            width: 18px;
+            object-fit: contain;
+            filter: invert(1);
+        }
+        #restart {
+            background-color: #CB5A5E;
+        }
+        #restart:hover {
+            background-color: #a94346;
+        }
+        #enter {
+            background-color: #26A69A;
+        }
+        #enter:hover {
+            background-color: #197c72;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr style="background-color: #CB5A5E;">
+                <td>
+                    <p style="color: white; margin: 15px 0 15px 10px; font-weight: 500;">Thông tin danh mục chất liệu</p>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>Tên (Title)</p>
+                    <input type="text" name="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Từ khóa SEO</p>
+                    <input type="text" name="keyword" id="keyword">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Mô tả SEO</p>
+                    <input type="text" name="description" id="description">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Ghi chú</p>
+                    <textarea rows="2" name="note" id="note"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Trạng thái</span>
+                    <input type="radio" name="status" id="active">
+                    <label for="active">Hoạt động</label>
+                    <input type="radio" name="status" id="locked">
+                    <label for="locked">Đang khóa</label>
+                </td>
+            </tr>
+            <tr>
+                <td><hr></td>
+            </tr>
+            <tr>
+                <td style="display: flex; justify-content: end; margin-bottom: 15px;">
+                    <div id="restart" style="display: flex; align-items: center; padding: 5px 10px;">
+                        <img src="undo-2.png" alt="">
+                        <p style="margin: 0 0 0 5px; font-weight: 500; color: white; font-size: 14px;">Nhập lại</p>
+                    </div>
+                    <div id="enter" style="display: flex; align-items: center; margin: 0 15px; padding: 5px 10px;">
+                        <img src="instagram.png" alt="">
+                        <p style="margin: 0 0 0 5px; font-weight: 500; color: white; font-size: 14px;">Ghi lại</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
