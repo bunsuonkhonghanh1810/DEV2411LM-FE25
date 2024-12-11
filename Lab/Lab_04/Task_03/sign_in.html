@@ -77,7 +77,7 @@
             background-color: #E2E7EB;
         }
         img {
-            width: 48px;
+            width: 45px;
         }
         main > :nth-child(1) > :nth-child(1) > :nth-child(2) {
             font-size: 36px;
@@ -96,20 +96,25 @@
             height: 54px;
             padding: 15px;
             font-size: 16px;
-            border: 2px solid #999;
+            border: 1.5px solid #999;
             border-radius: 4px;
             outline: none;
             transition: 0.1s ease-in-out;
         }
         main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:focus {
-            border-color: #0B57D0;
+            border: 3px solid #0B57D0;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:focus + label {
+            font-weight: 600;
+            color: #0B57D0;
         }
         main > :nth-child(1) > :nth-child(2) {
             margin-left: 10px;
+            margin-top: 110px;
         }
         main > :nth-child(1) > :nth-child(2) > :nth-child(1) > label {
             position: absolute;
-            left: 10px;
+            left: 18px;
             top: 16.2px;
             padding: 0 5px;
             font-size: 16px;
@@ -121,8 +126,61 @@
         main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:focus + label,
         main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:not(:placeholder-shown) + label {
             top: -8px;
+            left: 15px;
             font-size: 12px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(2) {
+            font-size: 14px;
+            font-weight: 600;
+            width: max-content;
+            border-radius: 8px;
+            padding: 0 5px;
             color: #0B57D0;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(2):hover {
+            background-color: #e2ecfc;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(3) {
+            font-size: 14px;
+            padding: 0 5px;
+            margin-top: 40px;
+        }
+        span {
+            font-weight: 600;
+            color: #0B57D0;
+            cursor: pointer;
+        }
+        span:hover {
+            text-decoration: underline;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(4) {
+            display: flex;
+            justify-content: end;
+            margin-top: 35px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(4) > p {
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1) {
+            color: #0B57D0;
+            padding: 10px 10px;
+            margin-right: 30px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(2) {
+            background-color: #0B57D0;
+            color: #ffffff;
+            padding: 10px 25px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(1):hover {
+            background-color: #e2ecfc;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(4) > :nth-child(2):hover {
+            background-color: #0e4db1;
         }
     </style>
 </head>
@@ -138,6 +196,12 @@
                 <div>
                     <input type="email" name="email" id="email" placeholder="">
                     <label for="email">Email hoặc số điện thoại</label>
+                </div>
+                <p>Bạn quên địa chỉ email?</p>
+                <p>Đây không phải máy tính của bạn? Hãy sử dụng Chế độ khách để đăng nhập một cách riêng tư. <span>Tìm hiểu thêm về cách sử dụng Chế độ khách</span></p>
+                <div>
+                    <p>Tạo tài khoản</p>
+                    <p>Tiếp theo</p>
                 </div>
             </div>
         </div>
