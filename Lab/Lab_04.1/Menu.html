@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        ul {
+            list-style: none;
+            position: relative;
+            }
+        a {
+            text-decoration: none;
+        }
+        nav {
+            position: relative;
+            background-color: #000;
+        }
+        nav > ul {
+            display: flex;
+            justify-content: center;
+        }
+        nav > ul > li {
+            padding: 3rem 2rem 3rem 0;
+        }
+        nav > ul > li > a {
+            font-size: 22px;
+            font-weight: lighter;
+        }
+        nav > ul > li > div {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            gap: 100px;
+            padding: 30px 0 150px 0;
+            z-index: 1;
+            
+        }
+        nav > ul > li > div p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        nav > ul > li > div a {
+            font-size: 18px;
+        }
+        nav > ul > li > div > div > ul > li {
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        nav > ul > li > div > div {
+            width: 200px;
+        }
+        nav > ul > li:hover > div {
+            display: flex;
+        }
+        nav > img {
+            position: absolute;
+            width: 110px;
+            z-index: 1;
+            border-radius: 0 0 10px 10px;
+            left: 230px;
+            cursor: pointer;
+        }
+        nav > a {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            background-color: #FEE962;
+            z-index: 1;
+            padding: 10px 20px 10px 10px;
+            border-radius: 50px;
+            top: 26.8px;
+            right: 190px;
+        }
+        nav > a > div > img {
+            filter: invert(25%) sepia(160%) saturate(800%) hue-rotate(-50deg);
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        nav > a > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border: 2px solid #A95054;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        nav > a > p {
+            color: #A95054;
+        }
+        nav > a > p > span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #A95054;
+        }
+        nav > ul > li > div > div > ul > li > img {
+            display: none;
+            z-index: 2;
+            width: 200px;
+            height: 130px;
+            object-fit: cover;
+            margin-top: 5px;
+            border-radius: 10px;
+        }
+        nav > ul > li > div > div > ul > li:hover > img {
+            display: block;
+        }
+        nav > ul > li > div > div > ul > li:hover +li {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="image-removebg-preview.png" alt="">
+        <a href="#">
+            <div>
+                <img src="map-pinned.png" alt="">    
+            </div>
+            
+            <p>
+                Hệ thống
+                <br>
+                <span>Cửa Hàng</span>
+            </p>
+        </a>
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Tìm hiểu</a></li>
+            <li>
+                <a href="#">Thực đơn</a>
+                <div>
+                    <div>
+                        <p>Bữa chính</p>
+                        <ul>
+                            <li>
+                                <a href="#">Gà rán</a>
+                                <img src="ga-ran.png" alt="">
+                            </li>
+                            <li>
+                                <a href="#">Mì Ý</a>
+                                <img src="Buoc-9-9-3230-1650439557.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href="#">Bánh hamburger</a>
+                                <img src="AR-72657-best-hamburger-ever-ddmfs-4x3-hero-878e801ab30445988d007461782b3c25.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Điểm tâm</p>
+                        <ul>
+                            <li>
+                                <a href="#">Cupcake</a>
+                                <img src="banh-cupcake-socola.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href="#">Kem</a>
+                                <img src="Ice-Cream-Sundae-Bar.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Thức uống</p>
+                        <ul>
+                            <li>
+                                <a href="#">Cà phê</a>
+                                <img src="Ca_Phe-2.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href="#">Sinh tố</a>
+                                <img src="cach-lam-sinh-to-trai-cay-ngon.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href="#">Hoa quả dầm</a>
+                                <img src="cach-lam-hoa-qua-dam-thumbnail.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href="#">Sữa chua trái cây</a>
+                                <img src="25336081_0_0_2121_1414_640x0_80_0_0_5d5ea2896da89135e2e736bd6b273339.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

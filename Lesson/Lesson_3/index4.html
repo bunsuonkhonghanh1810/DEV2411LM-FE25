@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #red {
+            color: red;
+        }
+        .cl-blue {
+            color: blue;
+        } */
+        section p {
+            color: red;
+        }
+        section p {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Lưu ý:
+        1. CSS sẽ lấy từ dưới lên trên hay là viết sau sẽ được nhận CSS
+        2. important -> tương tác qua id -> tương tác qua thuộc tính -> tương tác qua class -> tương tác qua tên thẻ
+        3. Trỏ càng nhiều bộ chọn thì sẽ càng được ưu tiên
+    -->
+    <section>
+        <div>
+            <p id="red" class="cl-blue">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti harum voluptatem temporibus soluta animi error beatae debitis vel provident asperiores! Necessitatibus voluptate incidunt, quae atque quasi molestias minima laborum deserunt!</p>
+        </div>
+    </section>
+</body>
+</html>
