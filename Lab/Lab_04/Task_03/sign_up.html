@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #F0F4F9;
+        }
+        main > :nth-child(1) {
+            background-color: #ffffff;
+            width: 1120px;
+            height: 380px;
+            border-radius: 30px;
+            display: flex;
+        }
+        select {
+            border: none;
+            background-color: #F0F4F9;
+            border-radius: 10px;
+            transition: 0.2s;
+            appearance: none;
+            width: 100%;
+            padding: 8px 10px 8px 20px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        select:hover {
+            background-color: #E2E7EB;
+        }
+        main > :nth-child(2) > :nth-child(1)::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #333;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        main > :nth-child(2) > :nth-child(1) {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+        main > :nth-child(2) {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        main > :nth-child(2) > div > a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 13px;
+            margin-right: 15px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+        main > :nth-child(2) > div > a:hover {
+            background-color: #E2E7EB;
+        }
+        img {
+            width: 45px;
+        }
+        main > :nth-child(1) > :nth-child(1) > :nth-child(2) {
+            font-size: 36px;
+            font-weight: 500;
+            margin: 20px 0;
+        }
+        main > :nth-child(1) > div {
+            width: 50%;
+            margin: 40px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1), main > :nth-child(1) > :nth-child(2) > :nth-child(2) {
+            position: relative;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input, main > :nth-child(1) > :nth-child(2) > :nth-child(2) > input {
+            width: 100%;
+            height: 54px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1.5px solid #999;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.1s ease-in-out;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:focus, main > :nth-child(1) > :nth-child(2) > :nth-child(2) > input:focus {
+            border: 3px solid #0B57D0;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:focus + label, main > :nth-child(1) > :nth-child(2) > :nth-child(2) > input:focus + label {
+            font-weight: 600;
+            color: #0B57D0;
+        }
+        main > :nth-child(1) > :nth-child(2) {
+            margin-left: 10px;
+            margin-top: 110px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > label, main > :nth-child(1) > :nth-child(2) > :nth-child(2) > label {
+            position: absolute;
+            left: 18px;
+            top: 16.2px;
+            padding: 0 5px;
+            font-size: 16px;
+            color: #666;
+            background-color: #ffffff;
+            transition: 0.1s ease-in-out;
+            pointer-events: none;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:focus + label,
+        main > :nth-child(1) > :nth-child(2) > :nth-child(1) > input:not(:placeholder-shown) + label, 
+        main > :nth-child(1) > :nth-child(2) > :nth-child(2) > input:focus + label,
+        main > :nth-child(1) > :nth-child(2) > :nth-child(2) > input:not(:placeholder-shown) + label {
+            top: -8px;
+            left: 15px;
+            font-size: 12px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(2) {
+            margin-top: 30px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(3) {
+            display: flex;
+            justify-content: end;
+            margin-top: 35px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(3) > p {
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(3) > :nth-child(1) {
+            background-color: #0B57D0;
+            color: #ffffff;
+            padding: 10px 25px;
+        }
+        main > :nth-child(1) > :nth-child(2) > :nth-child(3) > :nth-child(1):hover {
+            background-color: #0e4db1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div>
+            <div>
+                <img src="Google__G__logo.png" alt="">
+                <p>Tạo Tài khoản Google</p>
+                <p>Nhập tên của bạn</p>
+            </div>
+            <div>
+                <div>
+                    <input type="text" name="lastName" id="lastName" placeholder="">
+                    <label for="lastName">Họ (không bắt buộc)</label>
+                </div>
+                <div>
+                    <input type="text" name="firstName" id="firstName" placeholder="">
+                    <label for="firstName">Tên</label>
+                </div>
+                <div>
+                    <p>Tiếp theo</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <select name="language" id="language">
+                    <option value="vietnamese" selected>Tiếng Việt</option>
+                    <option value="englishUK">English (United Kingdom)</option>
+                    <option value="englishUS">English (United States)</option>
+                </select>
+            </div>
+            <div>
+                <a href="#">Trợ giúp</a>
+                <a href="#">Quyền riêng tư</a>
+                <a href="#">Điều khoản</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
