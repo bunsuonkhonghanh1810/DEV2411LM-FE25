@@ -1,0 +1,42 @@
+1. Các cách nhúng css - 3 cách
+- Nhúng css trong thẻ html - style = ".." trong thẻ
+- Nhúng css trong file html - <style>..</style>
+- Nhúng css ngoài file html - <link rel="stylesheet" href "đường dẫn file css"
+
+2. 4 cách tương tác css với thẻ html
+- Tương tác qua id - #ten_id
+- Tương tác qua class - .ten_class
+- Tương tác qua thẻ html - ten_html
+- Tương tác qua thuộc tính của thẻ html - [tên_thuộc_tính = "thuộc tính"]
+
+3. Mức độ ưu tiên trong css/lưu ý
+- Css viết sau sẽ được sử dụng 
+- !important -> #id -> thuộc tính -> class -> tên thẻ html
+- Css sẽ ưu tiên sử dụng nếu thẻ chọn chi tiết (trỏ gần nhất) đến thẻ html
+
+4. Một số css thông dụng
+- margin, padding
+- text
+- position: absolute, relative, fixed
+- border
+- background
+- color
+- display: block, flex, inline, none
+- visibility: hidden, visible
+- font
+ + font-size
+ + font-family
+- content
+- ::before, ::after
+- width, height
+- left, right, bottom, top
+
+5. Đơn vị
+- px, rem, em, %,..
+
+6. Bảng màu
+- rgb( , , )
+- hex: #
+- Tên màu
+
+7. 
