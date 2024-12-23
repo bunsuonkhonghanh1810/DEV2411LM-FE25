@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biện Luận Phương Trình</title>
+</head>
+<body>
+    <h2>Giải phương trình bậc nhất: ax + b = 0</h2>
+    <form id="equationForm">
+        <label for="a">Nhập a:</label>
+        <input type="number" id="a" name="a" required>
+        <br><br>
+        <label for="b">Nhập b:</label>
+        <input type="number" id="b" name="b" required>
+        <br><br>
+        <button type="button" onclick="phuongTrinhBacNhat()">Giải phương trình</button>
+    </form>
+
+    <h3>Kết quả:</h3>
+    <p id="result"></p>
+
+    <script>
+        function phuongTrinhBacNhat() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+
+            var result;
+            if (a === 0) {
+                if (b === 0) {
+                    result = "Phương trình vô số nghiệm.";
+                } else {
+                    result = "Phương trình vô nghiệm.";
+                }
+            } else {
+                var x = -b / a;
+                result = `Phương trình có nghiệm duy nhất: x = ${x}`;
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+</html>

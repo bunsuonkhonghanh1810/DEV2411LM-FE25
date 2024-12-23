@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Tích Mảng</title>
+</head>
+<body>
+    <h1>Phân Tích Mảng</h1>
+    <div id="output"></div>
+    <script>
+        var arr = [1, 5, 6, 9, 9, 4, 5, 6, 54, 7, 3, 23, 6, 7];
+
+        document.getElementById("output").innerHTML += `<p>Mảng ban đầu: [${arr.join(", ")}]</p>`;
+
+        function timSoXuatHienHaiLan(array) {
+            var count = {};
+            var result = [];
+
+            array.forEach(num => {
+                count[num] = (count[num] || 0) + 1;
+            });
+
+            for (var key in count) {
+                if (count[key] === 2) {
+                    result.push(parseInt(key));
+                }
+            }
+            return result;
+        }
+
+        var xuatHienHaiLan = timSoXuatHienHaiLan(arr);
+        document.getElementById("output").innerHTML += `<p>Các số xuất hiện đúng 2 lần: [${xuatHienHaiLan.join(", ")}]</p>`;
+
+        function demSoLanXuatHien(array, numbers) {
+            var count = {};
+
+            numbers.forEach(num => {
+                count[num] = array.filter(x => x === num).length;
+            });
+
+            return count;
+        }
+
+        var soLanXuatHien = demSoLanXuatHien(arr, xuatHienHaiLan);
+
+        var resultHtml = `<p>Số lần xuất hiện của các số có 2 lần xuất hiện:</p><ul>`;
+        for (var key in soLanXuatHien) {
+            resultHtml += `<li>Số ${key}: ${soLanXuatHien[key]} lần</li>`;
+        }
+        resultHtml += `</ul>`;
+        document.getElementById("output").innerHTML += resultHtml;
+    </script>
+</body>
+</html>

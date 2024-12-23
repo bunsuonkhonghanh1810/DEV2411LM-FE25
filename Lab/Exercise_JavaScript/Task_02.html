@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc hai</title>
+</head>
+<body>
+    <h2>Giải phương trình bậc hai: ax² + bx + c = 0</h2>
+    <form id="quadraticForm">
+        <label for="a">Nhập a:</label>
+        <input type="number" id="a" name="a" required>
+        <br><br>
+        <label for="b">Nhập b:</label>
+        <input type="number" id="b" name="b" required>
+        <br><br>
+        <label for="c">Nhập c:</label>
+        <input type="number" id="c" name="c" required>
+        <br><br>
+        <button type="button" onclick="phuongTrinhBacHai()">Giải phương trình</button>
+    </form>
+
+    <h3>Kết quả:</h3>
+    <p id="result"></p>
+
+    <script>
+        function phuongTrinhBacHai() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+
+            if (a === 0) {
+                phuongTrinhBacNhat(b, c); 
+                return;
+            }
+
+            var delta = b * b - 4 * a * c;
+            var result;
+
+            if (delta < 0) {
+                result = "Phương trình vô nghiệm.";
+            } else if (delta === 0) {
+                var x = -b / (2 * a);
+                result = `Phương trình có nghiệm kép: x₁ = x₂ = ${x}`;
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                result = `Phương trình có hai nghiệm phân biệt: x₁ = ${x1}, x₂ = ${x2}`;
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+
+        function phuongTrinhBacNhat(b, c) {
+            var result;
+            if (b === 0) {
+                result = c === 0 ? "Phương trình vô số nghiệm." : "Phương trình vô nghiệm.";
+            } else {
+                var x = -c / b;
+                result = `Phương trình có nghiệm duy nhất: x = ${x}`;
+            }
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+</html>
