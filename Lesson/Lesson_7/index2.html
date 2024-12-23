@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form_control">
+        <label for="userName">Username</label>
+        <input type="text" name="userName" id="userName" onblur="checkBlank('userName')">
+        <p class="error" id="erroruserName">
+            Username không được để trống
+        </p>
+        <p class="error">
+            Username không đúng định dạng
+        </p>
+    </div>
+    <div class="form_control">
+        <label for="passWord">Password</label>
+        <input type="text" name="passWord" id="passWord" onblur="checkBlank('passWord')" autocomplete="off">
+        <p class="error" id="errorpassWord">
+            Password không được để trống
+        </p>
+        <p class="error">
+            Password không đúng định dạng
+        </p>
+    </div>
+    <div class="form_control">
+        <input type="checkbox" name="showPass" id="showPass" onclick="showPass()">
+        <label for="showPass">Hiển thị mật khẩu</label>
+    </div>
+    <div class="form_control">
+        <input type="submit" name="submit" id="submit">
+    </div>
+
+    <script>
+        var regex = {
+            userName: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            passWord: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+        }
+
+        function checkBlank(txt) {
+            var checkBlank = document.getElementById(txt).value;
+            if (checkBlank.length === 0) {
+                document.getElementById(`error${txt}`).style.display = 'block';
+                document.querySelector(`p#error${txt} + p`).style.display = 'none'; 
+            }else {
+                document.getElementById(`error${txt}`).style.display = 'none';
+                if (regex[txt].test(checkBlank)) {
+                    document.querySelector(`p#error${txt} + p`).style.display = 'none';
+                }else {
+                    document.querySelector(`p#error${txt} + p`).style.display = 'block'; 
+                }
+            } 
+        }
+
+        function showPass() {
+            let checkShowPass = document.getElementById('showPass');
+            if (checkShowPass.checked) {
+                let passWord = document.getElementById('passWord').type = 'text';
+            }else {
+                let passWord = document.getElementById('passWord').type = 'passWord';
+            }
+        }
+    </script>
+</body>
+</html>
