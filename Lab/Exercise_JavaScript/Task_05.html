@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Số Chia Hết Cho 3</title>
+</head>
+<body>
+    <h1>Tìm Các Số Chia Hết Cho 3</h1>
+    <form id="divisibleByThreeForm">
+        <label for="numberInput">Nhập số:</label>
+        <input type="number" id="numberInput" min="1" required>
+        <button type="submit">Tìm số</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        function findNumbersDivisibleByThree(n) {
+            var numbers = [];
+            for (var i = 0; i < n; i+=3) {
+                 numbers.push(i);
+            }
+            return numbers;
+        }
+
+        document.getElementById("divisibleByThreeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const numberInput = document.getElementById("numberInput").value;
+            const number = parseInt(numberInput);
+
+            if (isNaN(number) || number < 1) {
+                document.getElementById("output").innerHTML = "<p>Vui lòng nhập một số lớn hơn hoặc bằng 1.</p>";
+                return;
+            }
+
+            const numbers = findNumbersDivisibleByThree(number);
+            document.getElementById("output").innerHTML = `<p>Các số chia hết cho 3 và nhỏ hơn ${number} là: ${numbers.join(", ")}</p>`;
+        });
+    </script>
+</body>
+</html>
