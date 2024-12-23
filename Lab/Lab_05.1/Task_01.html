@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        .border {
+            border: 1px solid black;
+        }
+        .headline {
+            font-size: 2.1rem;
+            padding: 1.2rem 0;
+            text-align: start;
+        }
+        .padding-top {
+            padding-top: 0.8rem;
+        }
+        .padding-bottom {
+            padding-bottom: 0.5rem;
+        }
+        .first-col {
+            width: 110px;
+        }
+        .second-col {
+            width: 250px;
+        }
+        input[type="reset"] {
+            margin-left: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+    <form name="loginInformation" method="post" action="" enctype="multipart/form-data">
+        <table>
+            <thead>
+                <tr class="border">
+                    <th class="headline">Login Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border">
+                    <td>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="padding-top first-col"><label for="userName">Username:</label></td>
+                                    <td class="padding-top second-col"><input type="text" name="userName" id="userName"></td>
+                                </tr>
+                                <tr>
+                                    <td class="padding-top"><label for="passWord">Password:</label></td>
+                                    <td class="padding-top"><input type="text" name="passWord" id="passWord"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="padding-top">
+                                        <input type="checkbox" name="rememberSet" id="rememberSet">
+                                        <label for="rememberSet">Remember Set</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="padding-top padding-bottom">
+                                        <input type="button" name="login" id="login" value="Login" onclick="validateForm(document.forms.loginInformation)">
+                                        <input type="reset" name="reset" id="reset" value="Reset">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <script>
+        function checkNull(txt) {
+            if(txt.value.length == 0)
+                return true;
+            else
+                return false;
+        }
+        function validateForm (f) {
+            if (checkNull(f.userName)) {
+                alert("Invalid Username or password");
+                f.userName.focus();
+                return;
+            }
+            if (checkNull(f.passWord)) {
+                alert("Invalid Username or password");
+                f.userName.focus();
+                return;
+            }
+
+            alert("Welcome to world of JavaScript");
+            return;
+        }
+    </script>
+</body>
+</html>
