@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tìm Các Số Chia Hết Cho 5</h1>
+    <div id="output"></div>
+
+    <script>
+        function findNumbersDivisibleByFive() {
+            let numbers = [];
+            for (let i = 5; i <= 50; i+=5) {
+                numbers.push(i);
+            }
+            return numbers;
+        }
+
+        const numbers = findNumbersDivisibleByFive();
+        document.getElementById('output').innerHTML = `<p>Các số chia hết cho 5 trong đoạn từ 1 đến 50 là: ${numbers.join(", ")}</p>`
+    </script>
+</body>
+</html>

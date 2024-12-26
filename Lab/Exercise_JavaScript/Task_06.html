@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kiểm tra kiểu số</title>
 </head>
 <body>
-    <h1>Kiểm tra kiểu số</h1>
+    <h1>Kiểm Tra Kiểu Số</h1>
     <form id="isNumberForm" action="">
         <label for="number">Nhập vào 1 ký tự bất kỳ:</label>
         <input type="text" name="number" id="number">
@@ -16,12 +16,14 @@
     <script>
         document.getElementById('isNumberForm').addEventListener("submit", function(event) {
             event.preventDefault();
-            let digit = document.getElementById('number')
+            let digit = document.getElementById('number').value;
 
-            if (isNaN(digit)) {
-                alert("true");
+            if (isNaN(digit) || digit.trim() === "") {
+                alert("Ký tự nhập vào không phải là số!");
+            } else {
+                alert("Ký tự nhập vào là số!");
             }
-        })
+        });
     </script>
 </body>
 </html>
