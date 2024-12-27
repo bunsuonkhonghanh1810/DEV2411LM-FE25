@@ -57,6 +57,7 @@
             }else {
                 if ($('#buttonContainer').hasClass(`${$(this).get(0).id}`)) {
                     $('#buttonContainer').removeClass();
+                    $('h4').css('color', 'black');
                 }else {
                     $(this).findPosition();
                     $('#buttonContainer').removeClass();
