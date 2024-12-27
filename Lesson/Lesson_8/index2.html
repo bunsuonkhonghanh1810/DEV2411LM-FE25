@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form_control">
+        <label for="userName">Username</label>
+        <input type="text" name="userName" id="userName">
+        <p class="error errorBlank">
+            Username không được để trống
+        </p>
+        <p class="error errorFormat">
+            Username không đúng định dạng
+        </p>
+    </div>
+    <div class="form_control">
+        <label for="passWord">Password</label>
+        <input type="password" name="passWord" id="passWord">
+        <p class="error errorBlank">
+            Password không được để trống
+        </p>
+        <p class="error errorFormat">
+            Password không đúng định dạng
+        </p>
+    </div>
+    <div class="form_control">
+        <input type="checkbox" name="showPass" id="showPass">
+        <label for="showPass">Hiển thị mật khẩu</label>
+    </div>
+    <div class="form_control">
+        <input type="submit" name="submit" id="submit">
+    </div>
+
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        var regex = {
+            userName: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            passWord: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_@$!%*?&])[A-Za-z\d_@$!%*?&]{8,}$/
+        }
+
+        $('input').on('blur', function() {
+            let id = $(this).get(0).id;
+            if (id == 'showPass') return;
+            if ($(this).val() == "") {
+                $(this).siblings('.errorBlank').show();
+            }else {
+                $(this).siblings('.errorBlank').hide();
+                if (regex[id].test($(this).val())) {
+                    $(this).siblings('.errorFormat').hide();
+                }else $(this).siblings('.errorFormat').show();
+            }
+        })
+
+        $('#showPass').click(function() {
+            if ($(this).is(':checked')) {
+                $('#passWord').attr('type', 'text');
+            }else $('#passWord').attr('type', 'password');
+        });
+    </script>
+</body>
+</html>
