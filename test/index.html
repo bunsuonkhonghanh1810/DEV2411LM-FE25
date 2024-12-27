@@ -1,60 +1,101 @@
-<div class="button-container">
-    <button class="button" onclick="moveIndicator(this)">Đỏ</button>
-    <button class="button" onclick="moveIndicator(this)">Xanh</button>
-    <button class="button" onclick="moveIndicator(this)">Vàng</button>
-    <button class="button" onclick="moveIndicator(this)">Ghi</button>
-    <button class="button" onclick="moveIndicator(this)">Tím</button>
-    <div class="indicator"></div>
-</div>
-<style>
-    .button-container {
-        position: relative;
-        display: flex;
-        gap: 10px;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ảnh Trượt</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .button {
-        background: transparent;
-        border: 1px solid #ccc;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        position: relative;
-        z-index: 1;
-    }
+        /* Container chính */
+        .image-slider {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
 
-    .button:focus {
-        outline: none;
-    }
+        /* Dải ảnh */
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-    .indicator {
-        position: absolute;
-        border: 2px solid blue; 
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        width: 0;
-        height: 0;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
-</style>  
-<script>
-    function moveIndicator(button) {
-        const container = document.querySelector('.button-container');
-        const indicator = document.querySelector('.indicator');
+        /* Ảnh lớn */
+        .slider-track img {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        /* Ảnh nhỏ */
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .thumbnails img {
+            width: 60px;
+            height: 40px;
+            margin: 0 5px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnails img.active {
+            border: 2px solid blue;
+            opacity: 1;
+        }
         
-        const buttonRect = button.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        
-        const left = buttonRect.left - containerRect.left;
-        const top = buttonRect.top - containerRect.top;
-        const width = buttonRect.width;
-        const height = buttonRect.height;
-        
-        indicator.style.width = `${width}px`;
-        indicator.style.height = `${height}px`;
-        indicator.style.transform = `translate(${left}px, ${top}px)`;
-    }
+    </style>
+</head>
+<body>
+    <h1>Hiệu ứng trượt ảnh</h1>
 
-</script>
+    <!-- Slider -->
+    <div class="image-slider">
+        <div class="slider-track">
+            <img src="https://via.placeholder.com/300x200/FF0000/FFFFFF?text=1" alt="Ảnh 1">
+            <img src="https://via.placeholder.com/300x200/00FF00/FFFFFF?text=2" alt="Ảnh 2">
+            <img src="https://via.placeholder.com/300x200/0000FF/FFFFFF?text=3" alt="Ảnh 3">
+            <img src="https://via.placeholder.com/300x200/FFFF00/FFFFFF?text=4" alt="Ảnh 4">
+            <img src="https://via.placeholder.com/300x200/FF00FF/FFFFFF?text=5" alt="Ảnh 5">
+        </div>
+    </div>
+
+    <!-- Ảnh nhỏ -->
+    <div class="thumbnails">
+        <img src="https://via.placeholder.com/300x200/FF0000/FFFFFF?text=1" alt="Thumb 1" data-index="0">
+        <img src="https://via.placeholder.com/300x200/00FF00/FFFFFF?text=2" alt="Thumb 2" data-index="1">
+        <img src="https://via.placeholder.com/300x200/0000FF/FFFFFF?text=3" alt="Thumb 3" data-index="2">
+        <img src="https://via.placeholder.com/300x200/FFFF00/FFFFFF?text=4" alt="Thumb 4" data-index="3">
+        <img src="https://via.placeholder.com/300x200/FF00FF/FFFFFF?text=5" alt="Thumb 5" data-index="4">
+    </div>
+
+    <script>
+        const sliderTrack = document.querySelector('.slider-track');
+        const thumbnails = document.querySelectorAll('.thumbnails img');
+
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                // Di chuyển slider
+                const offset = -index * 300; // 300 là chiều rộng của ảnh lớn
+                sliderTrack.style.transform = `translateX(${offset}px)`;
+
+                // Cập nhật trạng thái active
+                thumbnails.forEach(tn => tn.classList.remove('active'));
+                thumbnail.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

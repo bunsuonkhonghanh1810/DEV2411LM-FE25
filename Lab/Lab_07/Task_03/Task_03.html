@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #imageContainer img {
+            width: 820px;
+            height: 540px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        #imageContainer {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        #imageSlider {
+            width: 820px;
+            height: 540px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        #chooseImage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 820px;
+            height: 136px;
+            margin: 0 auto;
+            margin-top: 13.2px;
+        }
+        #chooseImage img {
+            width: 17%;
+            height: 92px;
+            opacity: 0.6;
+            object-fit: cover;
+            position: relative;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        #chooseImage img.active {
+            opacity: 1;
+            width: 25%;
+            height: 136px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageSlider">
+        <div id="imageContainer">
+            <img src="images/17307037254105136.png">
+            <img src="images/6nz721GV.jpg">
+            <img src="images/art-league-of-legends-skin-lol-game-art-hd-wallpaper-preview.jpg">
+            <img src="images/b2b1b52b545df112bc346a88fe8058e3f58d79f8-1920x1080.jpg">
+            <img src="images/https___hypebeast.com_image_2024_11_25_three-new-league-of-legends-shows-in-development-01.jpg ">
+        </div>
+    </div>
+    <div id="chooseImage">
+        <img src="images/17307037254105136.png" class="active" data-index="0">
+        <img src="images/6nz721GV.jpg" data-index="1">
+        <img src="images/art-league-of-legends-skin-lol-game-art-hd-wallpaper-preview.jpg" data-index="2">
+        <img src="images/b2b1b52b545df112bc346a88fe8058e3f58d79f8-1920x1080.jpg" data-index="3">
+        <img src="images/https___hypebeast.com_image_2024_11_25_three-new-league-of-legends-shows-in-development-01.jpg " data-index="4">
+    </div>
+
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        $('#chooseImage img').click(function() {
+            $('#chooseImage img').removeClass();
+            $(this).addClass('active');
+            $('#imageContainer').css('transform', `translateX(${$(this).data('index') * -820}px)`)
+            console.log($(this).data('index') * -820);
+        })
+    </script>
+</body>
+</html>
