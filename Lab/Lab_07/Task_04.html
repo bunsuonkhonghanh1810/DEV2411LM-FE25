@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        nav, #textContainer {
+            width: 40%;
+            margin: 0 auto;
+        }
+        #container {
+            margin-top: 50px;
+        }
+        #textContainer {
+            border: 2px solid rgb(175, 172, 172);
+            padding: 1rem;
+            position: relative;
+            height: 25rem;
+        }
+        li {
+            margin-right: 0.6rem;
+            background-color: rgb(175, 172, 172);
+            width: 6rem;
+            padding: 0.7rem;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        li.active {
+            background-color: rgb(121, 17, 217);
+        }
+        li.active > a {
+            color: white;
+        }
+        #textContainer > div {
+            display: none;
+            position: absolute;
+        }
+        #textContainer > div.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <nav>
+            <ul>
+                <li class="HTML active"><a href="#">HTML</a></li>
+                <li class="CSS"><a href="#">CSS</a></li>
+                <li class="Jquery"><a href="#">Jquery</a></li>
+                <li class="PHP"><a href="#">PHP</a></li>
+            </ul>
+        </nav>
+        <div id="textContainer">
+            <div class="HTML active">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto odit, est, laudantium dolores maxime sit animi assumenda pariatur sapiente libero placeat tempora vitae facilis perspiciatis sed aliquid quaerat? Placeat, libero?</div>
+            <div class="CSS">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae soluta harum voluptatum, culpa distinctio consectetur assumenda, quod modi voluptates deleniti perferendis nesciunt suscipit odio architecto nostrum incidunt aliquam, eos necessitatibus.</div>
+            <div class="Jquery">Lorem ipsum dolor sit amet consectetur adipisicing elit. At veniam fugiat non ab pariatur obcaecati debitis ullam quae architecto. Dolore accusamus magnam ad natus voluptas, velit cum eaque eos doloribus.</div>
+            <div class="PHP">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil repellendus architecto voluptatem facilis quaerat est, rem incidunt culpa ea itaque similique dolor vitae sed ad ipsum sit, ipsa accusantium qui.</div>
+        </div>
+    </div>
+
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        $('li').click(function() {
+            $('li').removeClass('active');
+            $(this).addClass('active');
+            $('#textContainer > div').removeClass('active');
+            $(`#textContainer > .${$(this).get(0).className.split(' ')[0]}`).addClass('active');
+        })
+    </script>
+</body>
+</html>
