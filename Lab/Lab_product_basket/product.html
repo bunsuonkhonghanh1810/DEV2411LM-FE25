@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" 
+        rel="stylesheet">
+    
     <link 
         rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
@@ -16,19 +23,22 @@
             box-sizing: border-box;
             padding: 0;
             margin: 0;
+            font-family: "Montserrat", serif;
         }
         body {
-            background-color: #CCCCCC;
+            background-color: #F3F3F3;
         }
         .fa-basket-shopping {
             color: white;
-            background-color: #E7E1E1;
+            background-color: #BC955E;
             font-size: 1.8rem;
             padding: 0.6rem;
             border-radius: 50%;
+            transition: all 0.3s ease;
         }
         #basketContainer {
             position: absolute;
+            cursor: pointer;
         }
         #basketCover {
             position: fixed;
@@ -44,9 +54,71 @@
         #products {
             width: 85%;
             margin: 0 auto;
+            margin-top: 1.5rem;
             background-color: white;
+            padding: 1rem;
+        } 
+        #container {
+            display: flex;
+            justify-content: space-between  ;
+            flex-wrap: wrap;
         }
-
+        #basketContainer:hover .fa-basket-shopping {
+            color: black;
+            background-color: #dfaa5f;
+        }
+        .productContainer {
+            display: flex;
+            width: 24%;
+            aspect-ratio: 1/1.1;
+            background-color: #E7E1E1;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        #products img {
+            width: 100%;
+            aspect-ratio: 1/0.75;
+            object-fit: cover;
+        }
+        .productInfo {
+            display: flex;
+            flex-direction: column;
+        }
+        .productPicture {
+            display: flex;
+            width: 100%;
+        }
+        .productPrice span {
+            vertical-align: super;
+            font-size: 0.7rem;
+            color: red;
+        }
+        .productName {
+            color: #1b13b2;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+        .productText {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        .productContainer:hover {
+            -webkit-box-shadow: 0px 0px 10px 4px rgba(128,128,128,0.65);
+            -moz-box-shadow: 0px 0px 10px 4px rgba(128,128,128,0.65);
+            box-shadow: 0px 0px 10px 4px rgba(128,128,128,0.65);
+        }
+        .productContainer:hover .productInfo {
+            opacity: 0.5;
+        }
+        .addToBasket {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -56,12 +128,74 @@
         </div>
     </div>
     <div id="products">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, enim, eaque commodi laudantium sequi asperiores molestias, sunt voluptas molestiae iure ullam. Asperiores repellendus quisquam, libero reprehenderit molestias tempore amet quo?
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, deserunt enim natus, odit deleniti, quaerat accusantium impedit voluptatibus dolores dolorum cumque. Alias nesciunt cum accusamus fuga sequi, aliquid ut porro.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam porro iste voluptatem molestias nesciunt ad totam veniam libero fugit atque, eius ab voluptatum quod quia optio blanditiis enim architecto reprehenderit.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi velit consequuntur fugiat vitae, at, eius eveniet aliquam officiis minima voluptatibus praesentium consequatur pariatur deserunt. Aspernatur expedita velit at ducimus fugit!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam recusandae impedit sint error animi. Quae illum natus quasi ullam voluptatum. A distinctio id qui amet debitis ratione ut earum enim?
+        <div id="container">
+            <div class="productContainer">
+                <div class="productInfo">
+                    <div class="productPicture">
+                        <img src="images/1_acfd92fbcedd4b1ea2cd9d78582bb6c8_master.jpg" alt="">
+                    </div>
+                    <div class="productText">
+                        <p class="productName">Bàn tiếp khách</p>
+                        <p class="productPrice">Giá: 9,900,000<span>đ</span></p>
+                    </div>
+                </div>
+                <div class="addToBasket">
+                    <div>
 
+                    </div>
+                </div>
+            </div>
+            <div class="productContainer">
+                <div class="productInfo">
+                    <div class="productPicture">
+                        <img src="images/1_acfd92fbcedd4b1ea2cd9d78582bb6c8_master.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="productContainer">
+                <div class="productInfo">
+                    <div class="productPicture">
+                        <img src="images/1_acfd92fbcedd4b1ea2cd9d78582bb6c8_master.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="productContainer">
+                <div class="productInfo">
+                    <div class="productPicture">
+                        <img src="images/1_acfd92fbcedd4b1ea2cd9d78582bb6c8_master.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="productContainer">
+                <div class="productInfo">
+                    <div class="productPicture">
+                        <img src="images/1_acfd92fbcedd4b1ea2cd9d78582bb6c8_master.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
+
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+    <script src="js/data.js"></script>
+
+    <script>
+        $.fn.displayProduct = function() {
+            let product = `
+                `
+        }
+        $.fn.displayProducts = function() {
+            for (let i = 0; i < this.length; i++) {
+                $(this[i]).displayProduct();
+            }
+        }
+        $(products).displayProducts();
+    </script>
 </body>
 </html>
