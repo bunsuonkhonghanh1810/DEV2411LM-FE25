@@ -1,58 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hover Icon Effect</title>
-    <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
-        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" 
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer"/>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<button id="springButton" style="padding: 10px 20px; font-size: 16px;">
+    Click Me
+</button>
+<script>
+    function triggerSpringEffect(element) {
+        // Xóa lớp cũ nếu có
+        element.classList.remove('spring-effect');
+        // Đợi một chút rồi thêm lớp để kích hoạt lại animation
+        setTimeout(() => {
+            element.classList.add('spring-effect');
+        }, 10); // 10ms để đảm bảo animation được khởi động lại
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.querySelector('#springButton');
+        button.addEventListener('click', () => {
+            triggerSpringEffect(button);
+        });
+    });
+</script>
+<style>
+    .spring-effect {
+        display: inline-block;
+        position: relative;
+        animation: spring 0.6s linear;
+    }
 
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Giới hạn icon bên trong */
-            position: relative;
-            background-color: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    @keyframes spring {
+        0% {
+            transform: translateY(0);
         }
+        30% {
+            transform: translateY(-20px); /* Đẩy lên */
+        }
+        50% {
+            transform: translateY(10px); /* Hạ xuống nhẹ */
+        }
+        70% {
+            transform: translateY(-10px); /* Nhảy lên nhỏ */
+        }
+        100% {
+            transform: translateY(0); /* Quay về vị trí ban đầu */
+        }
+    }
 
-        .icon {
-            font-size: 2rem;
-            color: #333333;
-            transform: translateY(150%); /* Bắt đầu ở ngoài khung (bên dưới) */
-            transition: transform 0.5s ease; /* Hiệu ứng trượt mượt mà */
-        }
-
-        .icon-container:hover .icon {
-            transform: translateY(0); /* Trượt lên khi hover */
-        }
-    </style>
-</head>
-<body>
-    <div class="icon-container">
-        <i class="fa-solid fa-arrow-up icon"></i>
-    </div>
-</body>
-</html>
+</style>

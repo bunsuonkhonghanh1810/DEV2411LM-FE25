@@ -163,8 +163,8 @@
     </script>
     <script src="js/data.js"></script>
 
-    <script>
-        $.fn.displayProduct = function() {
+    <script>    
+        $.fn.displayProduct = function() {;
             let product = `
                 <div class="productContainer">
                     <div class="productInfo">
@@ -178,18 +178,37 @@
                     </div>
                     <div class="addToBasket">
                         <div>
-                            <i class="fa-solid fa-basket-shopping"></i>
+                            <i data-name="${this[0].product_id}" class="fa-solid fa-basket-shopping"></i>
                         </div>
                     </div>
                 </div>`
             $('#container').append(product);
         }
+
         $.fn.displayProducts = function() {
             for (let i = 0; i < this.length; i++) {
                 $(this[i]).displayProduct();
             }
         }
+
         $(products).displayProducts();
+
+        var basket = JSON.parse(localStorage.getItem('basket')) || [];
+
+        $('.addToBasket .fa-basket-shopping').click(function() {
+            console.log(basket);
+            for (let i = 0; i < basket.length; i++) {
+                if (basket[i].product_id == $(this).data('name')) {
+                    return;
+                }
+            }
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].product_id == $(this).data('name')) {
+                    basket.push(products[i]);
+                    localStorage.setItem('basket', JSON.stringify(basket));
+                }
+            }
+        })
     </script>
 </body>
 </html>
