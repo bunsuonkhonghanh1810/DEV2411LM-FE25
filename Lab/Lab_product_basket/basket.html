@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"/>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: "Oswald", serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #F3F3F3;
+        }
+        #container_1 {
+            display: flex;
+            justify-content: center;
+            width: 98%;
+            height: 100vh;
+            background-color: white;
+
+        }
+        .container {
+            width: 95%;
+        }
+        #back {
+            display: flex;
+            align-items: center;
+        }
+        #basket {
+            display: flex;
+            justify-content: space-between;
+        }
+        #products {
+            width: 65%;
+            height: max-content;
+            padding: 1rem;
+        }
+        #total {
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem 0;
+            width: 33.5%;
+            height: max-content;
+        }
+        #products, #total {
+            -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+            box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+        }
+        .productContainer {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgb(231, 231, 231);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .productContainerLeft {
+            display: flex;
+            align-items: center;
+        }
+        .productContainerRight {
+            display: flex;
+            align-items: center;
+        }
+        .productContainerLeftImage {
+            margin-right: 1rem;
+        }
+        .productContainerLeftImage img {
+            width: 6rem;
+        }
+        .quantity {
+            display: flex;
+        }
+        .quantity span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid black;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .quantity span:hover {
+            background-color: #aeadad;
+        }
+        .quantity input {
+            width: 4rem;
+            margin-right: 0.5rem;
+            border: 2px solid black;
+            text-align: center;
+        }
+        .productContainerLeftQuantity * {
+            margin: 0.5rem 0;
+        }
+        .price, .total {
+            color: red;
+        }
+        .productContainerRight .fa-trash-can {
+            font-size: 1.3rem;
+            color: #BC955E;
+            padding: 0.7rem;
+            background-color: white;
+            border: 5px solid #BC955E;
+            border-radius: 0.5rem;
+            transition: all 0.8s ease;
+            cursor: pointer;
+        }
+        .productContainerRight .fa-trash-can:hover {
+            -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+            box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+            color: white;
+            background-color: #BC955E;
+            border: 5px solid white;
+        }
+        .red {
+            color: red;
+        }
+        #total > div > * {
+            margin: 1rem 0;
+        }
+        #orders {
+            display: flex;
+        }
+        #buy, #more {
+            padding: 0.5rem 1.5rem;
+            border: 0.15rem solid black;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+        #buy:hover, #more:hover {
+            background-color: #dcdcdc;
+        }
+    </style>
+</head>
+<body>
+    <div id="container_1">
+        <div class="container">
+            <div id="back">
+                <i class="fa-solid fa-caret-left"></i>
+                <p>GIỎ HÀNG</p>
+            </div>
+            <div id="basket">
+                <div id="products"></div>
+                <div id="total">
+                    <div class="container">
+                        <h2>Tóm tắt đơn hàng</h2>
+                        <p>Tổng thành tiền: <span class="red total"></span></p>
+                        <p>Phí vận chuyển: <span class="red">Free ship</span><br><span style="margin-left: 1rem; font-size: 0.8rem;">(Miễn phí vận chuyển với đơn hàng trên 10 triệu)</span></p>
+                        <p>Thông tin vận chuyển: Sản phẩm sẽ được Minh Quang giao trong vòng 2-7 ngày. Chi tiết liên hệ <span style="font-weight: bold;">038 9973 955</span></p>
+                        <p>Tổng tiền: <span class="red total"></span></p>
+                        <div id="orders">
+                            <p id="buy">Đặt hàng ngay</p>
+                            <p id="more">Tiếp tục mua hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        let basket = JSON.parse(localStorage.getItem('basket')) || [];
+
+        $.fn.displayProduct = function() {
+            let product = `
+                <div class="productContainer" id="${this[0].product_id}">
+                    <div class="productContainerLeft">
+                        <div class="productContainerLeftImage">
+                            <img src="${this[0].product_image}" alt="">
+                        </div>
+                        <div class="productContainerLeftQuantity">
+                            <p>${this[0].product_name}</p>
+                            <div class="quantity">
+                                <span class="decrease ${this[0].product_id}">-</span>
+                                <input type="text" name="quantity_${this[0].product_id}" id="quantity_${this[0].product_id}" value="1" readonly>
+                                <span class="increase ${this[0].product_id}">+</span>
+                            </div>
+                            <p>Giá: <span class="price" data-price="${this[0].product_price}">${this[0].product_price.toLocaleString('vi-VN')}</span>VNĐ</p>
+                            <p>Thành tiền: <span class="total">${this[0].product_price.toLocaleString('vi-VN')}</span>VNĐ</p>
+                        </div>
+                    </div>
+                    <div class="productContainerRight">
+                        <div>
+                            <i class="fa-solid fa-trash-can" id="${this[0].product_id}"></i>
+                        </div>
+                    </div>
+                </div>`
+            
+            $('#products').append(product);
+        }
+
+        $.fn.displayBasket = function() {
+            for (let i = 0; i < this.length; i++) {
+                $(this[i]).displayProduct();
+            }
+        } 
+
+        $(basket).displayBasket();
+
+        $('.fa-trash-can').click(function() {
+            console.log('hihi');
+            let id = $(this).get(0).id;
+            for (let i = 0; i < basket.length; i++) {
+                if (basket[i].product_id == id) {
+                    basket.splice(i, 1);
+                    break;
+                }
+            }
+            localStorage.setItem('basket', JSON.stringify(basket));
+            window.location.reload();
+        })
+        
+
+        $.fn.updateProductTotal = function(quantity) {
+            let pricePerProduct = $(this).parent().siblings('p').children('.price').data('price');
+            $(this).parent().siblings('p').children('.total').text((pricePerProduct*quantity).toLocaleString('vi-VN'));  
+        }
+
+        $('.decrease').click(function() {
+            let input = $(this).siblings('input');
+            if (input.val() > 1) {
+                input.val(parseInt(input.val()) - 1);
+                $(this).updateProductTotal(input.val());
+            }
+        })
+
+        $('.increase').click(function() {
+            let input = $(this).siblings('input');
+            input.val(parseInt(input.val()) + 1);
+            $(this).updateProductTotal(input.val());
+        })
+    </script>
+</body>
+</html>

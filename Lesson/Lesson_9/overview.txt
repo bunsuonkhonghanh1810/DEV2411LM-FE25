@@ -1,0 +1,26 @@
+1. Sử dụng Javascript trong HTML
+    - Link file .js 
+    - Viết js trong file html 
+2. DOM/Jquery
+2.1. DOM
+2.1.1. Cách sử dụng 
+    - document.
+2.1.2. Tương tác với thẻ HTML
+- Tương tác thông qua id
+    + document.getElementById('tên_id')
+- Tương tác thông qua class
+    + document.getElementByClass('tên_class')
+- Tương tác thông qua tên thẻ HTML
+    + document.getElementByTagName('tên_thẻ_HTML')
+- Tương tác thông qua cú pháp CSS Selector
+    + document.querySelectorAll('cú_pháp_CSS_selector')
+2.1.3. Một số event
+    - click, dbclick, blur,..
+2.2. Jquery
+2.2.1. Cách sử dụng
+    - $('')
+2.2.2. Tương tác với thẻ HTML
+    - Tương tác thông qua cú pháp CSS Selector
+    - $('cú_pháp_CSS_selector')
+2.2.3. Một số event
+    - click(), dbclick(), blur(),..
