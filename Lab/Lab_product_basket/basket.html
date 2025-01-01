@@ -37,11 +37,17 @@
 
         }
         .container {
-            width: 95%;
+            width: 90%;
         }
         #back {
             display: flex;
             align-items: center;
+            width: max-content;
+            padding: 0.5rem 2rem;
+            margin: 1rem 0;
+            border-radius: 0.6rem;
+            transition: all 0.5s ease;
+            cursor: pointer;
         }
         #basket {
             display: flex;
@@ -112,6 +118,7 @@
             margin: 0.5rem 0;
         }
         .price, .total {
+            font-weight: bold;
             color: red;
         }
         .productContainerRight .fa-trash-can {
@@ -151,6 +158,23 @@
         #buy:hover, #more:hover {
             background-color: #dcdcdc;
         }
+        #emptyBasket {
+            display: flex;
+            justify-content: center;
+        }
+        #emptyBasket img {
+            width: 50%;
+        }
+        #back .fa-caret-left{
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        #back p {
+            font-size: 1.5rem;
+        }
+        #back:hover {
+            background-color: #dcdcdc;
+        }
     </style>
 </head>
 <body>
@@ -165,10 +189,10 @@
                 <div id="total">
                     <div class="container">
                         <h2>Tóm tắt đơn hàng</h2>
-                        <p>Tổng thành tiền: <span class="red total"></span></p>
+                        <p>Tổng thành tiền: <span class="red total"></span>VNĐ</p>
                         <p>Phí vận chuyển: <span class="red">Free ship</span><br><span style="margin-left: 1rem; font-size: 0.8rem;">(Miễn phí vận chuyển với đơn hàng trên 10 triệu)</span></p>
                         <p>Thông tin vận chuyển: Sản phẩm sẽ được Minh Quang giao trong vòng 2-7 ngày. Chi tiết liên hệ <span style="font-weight: bold;">038 9973 955</span></p>
-                        <p>Tổng tiền: <span class="red total"></span></p>
+                        <p>Tổng tiền: <span class="red total"></span>VNĐ</p>
                         <div id="orders">
                             <p id="buy">Đặt hàng ngay</p>
                             <p id="more">Tiếp tục mua hàng</p>
@@ -191,7 +215,7 @@
 
         $.fn.displayProduct = function() {
             let product = `
-                <div class="productContainer" id="${this[0].product_id}">
+                <div class="productContainer">
                     <div class="productContainerLeft">
                         <div class="productContainerLeftImage">
                             <img src="${this[0].product_image}" alt="">
@@ -200,7 +224,7 @@
                             <p>${this[0].product_name}</p>
                             <div class="quantity">
                                 <span class="decrease ${this[0].product_id}">-</span>
-                                <input type="text" name="quantity_${this[0].product_id}" id="quantity_${this[0].product_id}" value="1" readonly>
+                                <input type="text" id="quantity_${this[0].product_id}" value="1" readonly>
                                 <span class="increase ${this[0].product_id}">+</span>
                             </div>
                             <p>Giá: <span class="price" data-price="${this[0].product_price}">${this[0].product_price.toLocaleString('vi-VN')}</span>VNĐ</p>
@@ -218,8 +242,16 @@
         }
 
         $.fn.displayBasket = function() {
-            for (let i = 0; i < this.length; i++) {
-                $(this[i]).displayProduct();
+            if (this.length == 0) {
+                let empty = `
+                    <div id="emptyBasket">
+                        <img src="images/Giỏ_hàng_trống.gif" alt="">
+                    </div>`
+                $('#products').append(empty);
+            }else {
+                for (let i = 0; i < this.length; i++) {
+                    $(this[i]).displayProduct();
+                }
             }
         } 
 
@@ -249,6 +281,7 @@
             if (input.val() > 1) {
                 input.val(parseInt(input.val()) - 1);
                 $(this).updateProductTotal(input.val());
+                $(basket).updateRevenue();
             }
         })
 
@@ -256,6 +289,26 @@
             let input = $(this).siblings('input');
             input.val(parseInt(input.val()) + 1);
             $(this).updateProductTotal(input.val());
+            $(basket).updateRevenue();
+        })
+
+        $.fn.calculateRevenue = function() {
+            let revenue = 0;
+            for (let i = 0; i < this.length; i++) {
+                revenue += parseInt(this[i].product_price) * parseInt($(`#quantity_${this[i].product_id}`).val());
+            }
+            
+            return revenue;
+        }
+
+        $.fn.updateRevenue = function() {
+            $('#total .total').text($(this).calculateRevenue().toLocaleString('vi-VN'));
+        }
+        
+        $(basket).updateRevenue();
+
+        $('#back').click(function() {
+            window.location.href = 'product.html';
         })
     </script>
 </body>

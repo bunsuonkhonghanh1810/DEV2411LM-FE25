@@ -44,7 +44,7 @@ let products = [
     {
         product_id: 'MW08',
         product_name: 'Ghế làm việc',
-        product_price: 3099000,
+        product_price: 13099000,
         product_image: 'images/Ghe-da-ngoi-van-phong-cao-cap-ZA7793-9.jpg'
     },
     {
