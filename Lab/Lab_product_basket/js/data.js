@@ -39,7 +39,7 @@ let products = [
         product_id: 'MW07',
         product_name: 'Bàn làm việc',
         product_price: 17799000,
-        product_image: 'images/avar-giuong-ngu-hop.jpg'
+        product_image: 'images/ban-lam-viec-quan-ly-2-tu-hoc-mau-388-ghi-den.jpg'
     },
     {
         product_id: 'MW08',

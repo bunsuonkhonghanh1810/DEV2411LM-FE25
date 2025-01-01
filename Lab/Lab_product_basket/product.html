@@ -34,7 +34,6 @@
         }
         #basketContainer {
             position: absolute;
-            cursor: pointer;
         }
         #basketCover {
             position: fixed;
@@ -47,6 +46,7 @@
             justify-content: center;
             align-items: center;
             transition: all 1s ease;
+            cursor: pointer;
         }
         #products {
             width: 85%;
@@ -60,7 +60,7 @@
             justify-content: space-between  ;
             flex-wrap: wrap;
         }
-        #basketContainer:hover .fa-basket-shopping {
+        #basketCover:hover .fa-basket-shopping {
             color: white;
             background-color: #BC955E;
         }
@@ -143,12 +143,91 @@
             transform: translateY(-60%);
             opacity: 1;
         }
+        #basketList {
+            display: none;
+            position: fixed;
+            z-index: 10;    
+            width: 20%;
+            height: max-content;
+            right: 1rem;
+            top: 5.3rem;
+            background-color: white;
+            border: 3px solid #BC955E;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        #basketList img {
+            width: 100%;
+        }
+        #basketContainer:hover #basketList{
+            display: block;
+        }
+        #basketListTop {
+            text-align: center;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgb(231, 231, 231);
+        }
+        #basketListTop p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        #basketListBottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgb(231, 231, 231);
+        }
+        #basketListBottom > :last-child {
+            font-weight: bold;
+            color: white;
+            padding: 0.5rem 1rem;
+            background-color: #BC955E;
+        }
+        #basketListMiddle {
+            padding: 0.8rem 0;
+        }
+        #numberOfProduct {
+            display: none;
+            position: fixed;
+            right: 1.5rem;
+            top: 1.2rem;
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+            background-color: #FD475A;
+            width: 1.5rem;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #numberOfProduct p {
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div id="basketContainer">
-        <div id="basketCover">
-            <i class="fa-solid fa-basket-shopping"></i>
+        <div id="basketContainer_1">
+            <div id="basketCover">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <div id="numberOfProduct">
+                <p>1</p>
+            </div>
+        </div>
+        
+        <div id="basketList">
+            <div id="basketListTop">
+                <p>Danh sách giỏ hàng</p>
+            </div>
+            <div id="basketListMiddle">
+                <img src="images/Giỏ_hàng_trống.gif" alt="">
+            </div>
+            <div id="basketListBottom">
+                <p>(<span id="basketQuantity"></span> sản phẩm)</p>
+                <p>Xem chi tiết</p>
+            </div>
         </div>
     </div>
     <div id="products">
@@ -196,7 +275,6 @@
         let basket = JSON.parse(localStorage.getItem('basket')) || [];
 
         $('.addToBasket .fa-basket-shopping').click(function() {
-            console.log(basket);
             for (let i = 0; i < basket.length; i++) {
                 if (basket[i].product_id == $(this).data('name')) {
                     return;
@@ -208,11 +286,20 @@
                     localStorage.setItem('basket', JSON.stringify(basket));
                 }
             }
+            $(basket).updateBasket();   
         })
 
-        $('#basketContainer').click(function() {
+        $('#basketCover').click(function() {
             window.location.href = 'basket.html';
         })
+
+        $.fn.updateBasket = function() {
+            if (this.length != 0) {
+                $('#numberOfProduct > p').text(this.length);
+                $('#numberOfProduct').css('display', 'flex');
+            }
+        }
+        $(basket).updateBasket();   
     </script>
 </body>
 </html>
