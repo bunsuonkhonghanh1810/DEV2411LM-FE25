@@ -199,7 +199,6 @@
         }
         #basketListMiddle {
             border-top: 1px solid rgb(231, 231, 231);
-            height: 16.5rem;
             overflow-y: scroll;
         }
         #basketListMiddle::-webkit-scrollbar {
@@ -378,6 +377,9 @@
             }else {
                 $('#basketListMiddle').empty().append('<img style="width: 100%;" src="images/Giỏ_hàng_trống.gif" alt="">');
                 $('#basketListMiddle').css('border-bottom', '1px solid rgb(231, 231, 231)')
+            }
+            if (this.length > 3) {
+                $('#basketListMiddle').css('height', '17rem');
             }
         }
         $(basket).updateBasket();   
