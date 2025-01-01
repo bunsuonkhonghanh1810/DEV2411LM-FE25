@@ -24,6 +24,21 @@
         body {
             background-color: #F3F3F3;
         }
+        body::-webkit-scrollbar {
+            width: 0.8rem;
+        }
+        body::-webkit-scrollbar-track {
+            background: #F3F3F3; 
+            border-radius: 10px;
+        }
+        body::-webkit-scrollbar-thumb {
+            background: #BC955E;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        body::-webkit-scrollbar-thumb:hover {
+            background: #b8853c; 
+        }
         #basketContainer .fa-basket-shopping {
             color: #BC955E;
             background-color: white;
@@ -154,18 +169,13 @@
             background-color: white;
             border: 3px solid #BC955E;
             border-radius: 0.5rem;
-            padding: 1rem;
-        }
-        #basketList img {
-            width: 100%;
         }
         #basketContainer:hover #basketList{
             display: block;
         }
         #basketListTop {
             text-align: center;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid rgb(231, 231, 231);
+            margin: 1rem;
         }
         #basketListTop p {
             font-size: 1.2rem;
@@ -175,17 +185,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 0.8rem;
-            border-top: 1px solid rgb(231, 231, 231);
+            margin: 1rem;
         }
         #basketListBottom > :last-child {
             font-weight: bold;
             color: white;
             padding: 0.5rem 1rem;
             background-color: #BC955E;
+            cursor: pointer;
+        }
+        #basketListBottom > :last-child:hover {
+            background-color: #ab8654;
         }
         #basketListMiddle {
-            padding: 0.8rem 0;
+            border-top: 1px solid rgb(231, 231, 231);
+            height: 16.5rem;
+            overflow-y: scroll;
+        }
+        #basketListMiddle::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+        #basketListMiddle::-webkit-scrollbar-track {
+            background: #ffffff; 
+            border-radius: 10px;
+        }
+        #basketListMiddle::-webkit-scrollbar-thumb {
+            background: #ffd396;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #basketListMiddle::-webkit-scrollbar-thumb:hover {
+            background: #ebc38b; 
         }
         #numberOfProduct {
             display: none;
@@ -204,6 +234,32 @@
         #numberOfProduct p {
             color: white;
         }
+        .basketListMiddleProduct {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            border-bottom: 1px solid rgb(231, 231, 231);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        .basketListMiddleProduct:hover {
+            background-color: #e1e1e1;
+        }
+        .basketListMiddleProduct img {
+            width: 4.5rem;
+        }
+        .basketListMiddleProductRight {
+            text-align: right;
+        }
+        .basketListMiddleProductRight :first-child {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .basketListMiddleProductRight :last-child span {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -213,7 +269,7 @@
                 <i class="fa-solid fa-basket-shopping"></i>
             </div>
             <div id="numberOfProduct">
-                <p>1</p>
+                <p></p>
             </div>
         </div>
         
@@ -222,7 +278,13 @@
                 <p>Danh sách giỏ hàng</p>
             </div>
             <div id="basketListMiddle">
-                <img src="images/Giỏ_hàng_trống.gif" alt="">
+                <div class="basketListMiddleProduct">
+                    <img src="images/1_acfd92fbcedd4b1ea2cd9d78582bb6c8_master.jpg" alt="">
+                    <div class="basketListMiddleProductRight">
+                        <p>Sofa</p>
+                        <p><span>1.000.000</span> VNĐ</p>
+                    </div>
+                </div>
             </div>
             <div id="basketListBottom">
                 <p>(<span id="basketQuantity"></span> sản phẩm)</p>
@@ -292,11 +354,30 @@
         $('#basketCover').click(function() {
             window.location.href = 'basket.html';
         })
+        $('#basketListBottom > :last-child').click(function() {
+            window.location.href = 'basket.html';
+        })
 
         $.fn.updateBasket = function() {
+            $('#basketQuantity').text(this.length);
             if (this.length != 0) {
                 $('#numberOfProduct > p').text(this.length);
                 $('#numberOfProduct').css('display', 'flex');
+
+                $('#basketListMiddle').empty();
+                for (let i = 0; i < this.length; i++) {
+                    $('#basketListMiddle').append(`
+                        <div class="basketListMiddleProduct">
+                            <img src="${this[i].product_image}" alt="">
+                            <div class="basketListMiddleProductRight">
+                                <p>${this[i].product_name}</p>
+                                <p><span>${this[i].product_price.toLocaleString('vi-VN')}</span> VNĐ</p>
+                            </div>
+                        </div>`)
+                }
+            }else {
+                $('#basketListMiddle').empty().append('<img style="width: 100%;" src="images/Giỏ_hàng_trống.gif" alt="">');
+                $('#basketListMiddle').css('border-bottom', '1px solid rgb(231, 231, 231)')
             }
         }
         $(basket).updateBasket();   
