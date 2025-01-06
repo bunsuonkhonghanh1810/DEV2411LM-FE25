@@ -17,6 +17,56 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
         >
+        <style>
+            @media screen and (min-width: 992px) {
+                body {
+                    * {
+                        font-size: 0.6rem;
+                    }
+                }
+                
+                #header-bottom:has(.products_list:hover) {
+                    margin-bottom: 12rem;
+                }
+            }
+            @media screen and (min-width: 1200px) {
+                body {
+                    * {
+                        font-size: 0.8rem;
+                    }
+                }
+
+                #header-bottom:has(.products_list:hover) {
+                    margin-bottom: 14rem;
+                }
+            }
+            @media screen and (min-width: 1400px) {
+                body {
+                    * {
+                        font-size: 1rem;
+                    }
+                }
+                
+                #header-bottom:has(.products_list:hover) {
+                    margin-bottom: 16rem;
+                }
+            }
+            a {
+                text-decoration: none;
+            }
+            #header-bottom ul > li:hover, .products_list:hover {
+                background-color: red;
+            }
+            #header-bottom .products_list_hover > li:hover {
+                background-color: #c6c7ca;
+            }
+            .products_list_hover {
+                display: none;
+            }
+            .products_list:hover .products_list_hover {
+                display: flex;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -47,12 +97,12 @@
             </div>
             <div class="my-2" id="header-mid">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-2 p-0">
+                    <div class="row g-0">
+                        <div class= "col-2">
                             <img src="images/441906937_979089096845875_6090812849638286657_n.png" alt>
                         </div>
-                        <div class="col-5 d-flex align-items-center p-0">
-                            <div class="row col-11">
+                        <div class= "col-5 d-flex align-items-center">
+                            <div class="row g-0 col-11">
                                 <div class="input-group">
                                     <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                                     <span class="input-group-text">
@@ -61,18 +111,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 d-flex align-items-center p-0">
-                            <div class="row">
-                                <div class="col-6 d-flex p-0">
-                                    <div class="mid-left-logo d-flex align-items-center">
+                        <div class= "col-5 d-flex align-items-center">
+                            <div class="row g-0 d-flex justify-content-between">
+                                <div class= "col-5 d-flex p-0">
+                                    <div class="mid-left-logo">
                                         <img class src="images/460944287_379217171791540_3402763503252196795_n.png" alt>
                                     </div>
                                     <div class="mid-left-title text-uppercase ps-3">
-                                        Cam kết chất lượng sản phẩm dịch
-                                        vụ
+                                        Cam kết chất lượng sản phẩm dịch vụ
                                     </div>
                                 </div>
-                                <div class="col-6 d-flex p-0">
+                                <div class= "col-6 d-flex p-0">
                                     <div class="mid-left-logo d-flex align-items-center">
                                         <img class src="images/460230652_2981697878637762_1149184602973426553_n.png" alt>
                                     </div>
@@ -85,16 +134,42 @@
                     </div>
                 </div>
             </div>
-            <div id="header-bottom" class="bg-success">
+            <div id="header-bottom" style="background-color: #46AD0E;">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-2 p-0 my-auto">
-                            <a class="nav-link text-white fw-bold text-uppercase" href="#">
-                                <i class="fa-solid fa-bars"></i>
-                                Danh mục sản phẩm
+                    <div class="row g-0">
+                        <div class= "products_list col-2 d-flex align-items-center justify-content-center position-relative">
+                            <a class="nav-link text-white fw-bold text-uppercase d-flex align-items-center" href="#">
+                                <i class="fa-solid fa-bars me-1"></i>
+                                <p class="m-0 ms-1">Danh mục sản phẩm</p>
                             </a>
+                            <ul class="products_list_hover nav position-absolute top-100 bg-secondary-subtle justify-content-center">
+                                <li class="nav-item d-flex align-items-center w-100 px-2 border border-dark border-top-0">
+                                    <img src="images/461014368_493072600291801_6693606708678429079_n.png" alt="">
+                                    <a class="nav-link text-dark p-2">Cây trang trí trong nhà</a>
+                                </li>
+                                <li class="nav-item d-flex align-items-center w-100 px-2 border border-dark border-top-0">
+                                    <img src="images/461014368_493072600291801_6693606708678429079_n.png" alt="">
+                                    <a class="nav-link text-dark p-2">Cây trang trí sân vườn</a>
+                                </li>
+                                <li class="nav-item d-flex align-items-center w-100 px-2 border border-dark border-top-0">
+                                    <img src="images/461014368_493072600291801_6693606708678429079_n.png" alt="">
+                                    <a class="nav-link text-dark p-2">Cây phong thủy</a>
+                                </li>
+                                <li class="nav-item d-flex align-items-center w-100 px-2 border border-dark border-top-0">
+                                    <img src="images/461014368_493072600291801_6693606708678429079_n.png" alt="">
+                                    <a class="nav-link text-dark p-2">Cây cổ thụ</a>
+                                </li>
+                                <li class="nav-item d-flex align-items-center w-100 px-2 border border-dark border-top-0">
+                                    <img src="images/461014368_493072600291801_6693606708678429079_n.png" alt="">
+                                    <a class="nav-link text-dark p-2">Cây bóng mát</a>
+                                </li>
+                                <li class="nav-item d-flex align-items-center w-100 px-2 border border-dark border-top-0">
+                                    <img src="images/461014368_493072600291801_6693606708678429079_n.png" alt="">
+                                    <a class="nav-link text-dark p-2">Dịch vụ vật tư</a>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="nav d-flex justify-content-between col-10">
+                        <ul class="nav d-flex justify-content-evenly col-10">
                             <li class="nav-item">
                                 <a class="nav-link text-white fw-bold text-uppercase" href="#">Trang chủ</a>
                             </li>
@@ -121,6 +196,31 @@
                 </div>
             </div>
         </header>
+        <section id="product-hot">
+            <div class="container">
+                <div id="product-hot-top" class="row g-0 d-flex justify-content-between mt-3 bg-secondary-subtle">
+                    <div class="col-2 d-flex pe-0 position-relative" id="product-hot-top-left">
+                        <div class="d-flex align-items-center w-100" style="background-color: #46AD0E;">
+                            <img class="p-2" src="images/icon_section.png" alt="">
+                            <h3 class="text-white m-0">Sản phẩm bán chạy</h3>    
+                        </div>
+                        <img class="position-absolute start-100" src="images/icon_section1.png" alt="">
+                    </div>
+                    <div class="col-1 d-flex align-items-center" id="product-hot-top-right">
+                        <a class="text-dark" href="#">Xem tất cả</a>
+                        <span><i class="ms-1 fa-solid fa-caret-right"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3">
+                <div id="product-hot-bottom" class="row g-0">
+                    <div id="product-hot-bottom-left" class="col-lg-2">
+                        <img class="w-100" src="images/462584248_440421672456221_7122339481161563932_n.png" alt="">
+                    </div>
+                    <div id="product-hot-bottom-right" class="col-lg-10"></div>
+                </div>
+            </div>
+        </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
