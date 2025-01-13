@@ -272,3 +272,81 @@ header {
     height: 0.5625rem;
     background-color: #bd945f;
 }
+
+.list-product :nth-child(1), .list-product :nth-child(2), .list-product :nth-child(3) {
+    margin-right: 2rem;
+}
+
+.product-box a {
+    text-decoration: none;
+}
+.product-box {
+    margin-right: 2rem;
+}
+
+.product-hot > div > p {
+    display: inline-block;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    font-family: Gotham-Ultra, sans-serif;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 4.125rem;
+}
+
+.product-hot > div > p::after {
+    content: '';
+    position: absolute;
+    left: 4.8rem;
+    top: 2.3rem;
+    width: 50%;
+    height: 0.5625rem;
+    background-color: #bd945f;
+}
+
+.product-hot h4 {
+    color: #2c2e53;
+    font-size: 1rem;
+    font-family: Gotham-Ultra, sans-serif;
+    margin: 0.7rem 0 0 0;
+}
+
+.product-title :nth-child(2) {
+    margin: 0;
+    margin-top: -0.05rem;
+}
+
+.product-title :nth-child(3) {
+    color: #888888;
+    font-size: 0.75rem;
+    margin: 0;
+    margin-top: -0.05rem;
+}
+
+.product-title :nth-child(4) {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.slick-arrow {
+    position: absolute;
+    font-size: 1.95rem;
+    line-height: 1;
+    padding: 0.4rem;
+    width: 1.95rem;
+    aspect-ratio: 1/1;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: #bd945f;
+}
+
+.slick-prev {
+    top: 7rem;
+    left: -4.125rem;
+}
+
+.slick-next {
+    top: 7rem;
+    right: -4.125rem;
+}

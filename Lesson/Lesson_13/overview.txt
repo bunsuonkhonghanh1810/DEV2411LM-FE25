@@ -1,0 +1,37 @@
+1. html - khung trang
+    - Theo cú pháp thì có 2 loại thẻ: thẻ đơn và thẻ kép
+    - 1 số thuộc tính của thẻ html
+    - Một số thẻ thông dụng:
+        + table, thead, tbody, tfooter, tr, th, td
+        + form, input, select, option, textarea, lable,..
+        + header, sectiom, footer, nav, div, p,..
+        + span, lable, b, a, s, u, i,..
+        + h1, h2, h3, h4, h5, h6,..
+2. css - trang trí cho trang
+    - 3 cách để sử dụng với thẻ html
+        + inline - viết vào thẻ html
+        + internal - viết vào file html - sử dụng thẻ style
+        + external - viết vào file mở rộng .css và sử dụng thẻ link để liên kết tới file .css
+    - Các cách tương tác với thẻ html
+        + tương tác thông qua tên thẻ html  cd: div, h2,..
+        + tương tác thông qua tên class của thẻ html    vs: .class
+        + tương tác thông qua thuộc tính của thẻ html   vd: [tên_thuộc_tính = "thuộc_tính]
+        + tương tác thông qua id của thẻ html   vs: #tên_id
+    - Bộ chọn css
+        + tag01: chọn tất cả các phần tử tag01
+        + tag01>tag02: 
+        + tag01 tag02:
+        + tag01, tag02:
+        + tag01 + tag02:
+        + tag01::before/after:
+        + tag01:hover: 
+        + tag01:hover tag02:
+    - Mức độ ưu tiên css:
+        + css viết sau thì sẽ được sử dụng
+3. javascript - làm trang động
+4. DOM/jquery - tương tác với thẻ html
+5. Bootstrap - Thư viện để css dễ hơn và nhanh hơn
+6. Slick - slide item
+7. Fontawesome - icon
+8. Photoshop - đo kích thước, lấy mã màu, cắt ảnh
+9. Regular expression - check thông tin input

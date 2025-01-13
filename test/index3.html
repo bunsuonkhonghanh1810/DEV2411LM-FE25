@@ -1,0 +1,108 @@
+<style>
+    /* Container chung */
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+/* Slider chứa tất cả ảnh */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Mỗi slide */
+.slide {
+    min-width: 33.33%; /* 3 ảnh hiển thị trên toàn chiều rộng */
+    box-sizing: border-box;
+}
+
+/* Ảnh bên trong slide */
+.slide img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Nút chuyển slide */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+</style>
+
+<div class="slider-container">
+    <button class="slider-btn prev-btn">&#10094;</button>
+    <div class="slider">
+        <div class="slide"><img src="img/17307037254105136.png" alt=""></div>
+        <div class="slide"><img src="img/art-league-of-legends-skin-lol-game-art-hd-wallpaper-preview.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="img/b2b1b52b545df112bc346a88fe8058e3f58d79f8-1920x1080.jpg" alt="Image 3"></div>
+    </div>
+    <button class="slider-btn next-btn">&#10095;</button>
+</div>
+
+<script>
+
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const slideWidth = slides[0].offsetWidth; // Chiều rộng mỗi slide
+const totalSlides = slides.length;
+
+let currentIndex = 0; // Chỉ số ảnh đầu tiên
+
+// Xử lý nút "Next"
+document.querySelector('.next-btn').addEventListener('click', () => {
+    slider.style.transition = 'transform 0.5s ease-in-out';
+    currentIndex++;
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    if (currentIndex === totalSlides) {
+        setTimeout(() => {
+            slider.style.transition = 'none';
+            currentIndex = 0;
+            slider.style.transform = `translateX(0)`;
+        }, 500); // Thời gian khớp với transition
+    }
+});
+
+// Xử lý nút "Prev"
+document.querySelector('.prev-btn').addEventListener('click', () => {
+    if (currentIndex === 0) {
+        slider.style.transition = 'none';
+        currentIndex = totalSlides - 1;
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    setTimeout(() => {
+        slider.style.transition = 'transform 0.5s ease-in-out';
+        currentIndex--;
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }, 50); // Nhỏ hơn thời gian reset
+});
+
+</script>
