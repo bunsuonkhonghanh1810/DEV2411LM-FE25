@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Gotham-Medium;
+    src: url("../Photoshop/Gotham-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Gotham-Thin;
+    src: url("../Photoshop/Gotham-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Gotham-Ultra;
+    src: url("../Photoshop/Gotham-Ultra.otf") format("opentype");
+}

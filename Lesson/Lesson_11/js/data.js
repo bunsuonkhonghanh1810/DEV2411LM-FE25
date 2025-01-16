@@ -123,9 +123,7 @@ let pages = {
 }
 
 $.fn.renderPages = function() {
-    this.pageQuantity = Math.ceil(products.length / this[0].quantity);
-
-    $().changePage(1);
+    pages.pageQuantity = Math.ceil(this.length / this[0].quantity);
     
     $('.pagination').append('<li onclick="$(this).changePage(parseInt($(this).text()))" class="page-item"><a class="page-link">Previous</a></li>');
 
@@ -165,4 +163,4 @@ $.fn.previousNext = function(status) {
     }
 }
 
-$(pages).renderPages();
+$(products).renderPages();

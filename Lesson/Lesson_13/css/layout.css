@@ -1,0 +1,357 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Gotham-Medium, sans-serif;
+    font-size: 16px;
+    box-sizing: content-box;
+}
+
+::-webkit-scrollbar {
+    width: 8px; 
+    height: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #f3f3f3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bd945f;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b48446;
+}
+
+.container {
+    width: 1280px;
+}
+
+header {
+    padding: 1.375rem 0;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-logo > img {
+    height: 95%;
+}
+
+.header-nav .nav {
+    gap: 3.5rem
+}
+
+.header-nav .nav > a {
+    padding: 0.5rem 1.687rem;
+    position: relative;
+}
+
+.header-nav .nav > a::before {
+    content: '';
+    position: absolute;
+    top: 1.75rem;
+    width: 69%;
+    height: 0.3125rem;
+    background-color: #bd945f;
+    display: none;
+}
+
+.header-nav .nav > a:hover::before, .header-nav .nav > a.active::before {
+    display: block;
+}
+
+#banner {
+    margin-top: 8.75rem;
+    background-image: url('../images/banner.jpg');
+    width: 100%;
+    height: 51.4375rem;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-content {
+    margin-top: 8.5625rem;
+    margin-left: 3.25rem;
+}
+
+.banner-content :first-child, .banner-content :nth-child(2) {
+    font-size: 2.9rem;
+    text-transform: uppercase;
+    font-family: Gotham-Ultra, sans-serif !important;
+    margin: 0;
+    letter-spacing: 1.2px;
+    line-height: 1;
+}
+
+.banner-content :first-child {
+    margin-bottom: 0.75rem;
+    color: #2c2e53;
+}
+
+.banner-content :nth-child(2) {
+    margin-bottom: 1.5rem;
+    color: #bd945f;
+}
+
+.banner-content > :nth-child(3) {
+    width: 34.5626rem;
+    margin-bottom: 1.75rem;
+    text-align: justify;
+}
+
+.banner-content button {
+    box-sizing: border-box;
+    width: 13.1875rem;
+    height: 4.125rem;
+    color: white;
+    background-color: #bd945f;
+    font-size: 1.21rem;
+    font-family: Gotham-Ultra, sans-serif;
+    text-transform: uppercase;
+    border: 5px solid #bd945f;
+}
+
+.stand-out-brand {
+    height: 67.5rem;
+    background-color: #f3f3f3;
+}
+
+.products-catalogue {
+    position: absolute;
+    top: -3.6875rem;
+    width: 100%;
+    height: 32.5rem;
+    background-color: white;
+}
+
+.products-catalogue p {
+    font-family: Gotham-Ultra, sans-serif;
+    transition: all 0.5s ease;
+}
+
+.products-catalogue > div {
+    cursor: pointer;
+}
+
+.products-catalogue > div:hover p {
+    color: #bd945f;
+}
+
+.about-us {
+    width: 100%;
+    height: 67.5rem;
+    background-image: url("../images/about_us.jpg");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.about-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.72);
+}
+
+.about-us-top {
+    margin-bottom: 6.5rem;
+}
+
+.about-us-top-text p {
+    font-size: 1.9rem;
+    font-family: Gotham-Ultra, sans-serif;
+    line-height: 1;
+    margin-bottom: 4.125rem;
+    position: relative;
+}
+
+.about-us-top-text p::after {
+    content: '';
+    position: absolute;
+    left: 2.08rem;
+    top: 2.3rem;
+    width: 70%;
+    height: 0.5625rem;
+    background-color: #bd945f;
+}
+
+.about-us-top-content-left img {
+    width: 35.6875rem;
+}
+
+.about-us-top-content-right * {
+    color: white;
+    margin: 0;
+    line-height: 1;
+}
+
+.about-us-top-content-right-picture img {
+    margin-right: 0.875rem;
+}
+
+.about-us-bottom-text p {
+    font-size: 1.9rem;
+    font-family: Gotham-Ultra, sans-serif;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 4.125rem;
+}
+
+.about-us-bottom-text p::after {
+    content: '';
+    position: absolute;
+    left: 12.12rem;
+    top: 2.3rem;
+    width: 28.5%;
+    height: 0.5625rem;
+    background-color: #bd945f;
+}
+
+.about-us-bottom-content {
+    gap: 1.9375rem;
+}
+
+.about-us-bottom-content > div {
+    box-sizing: border-box;
+    width: 35.8125rem;
+    height: 7.0625rem;
+    background-color: white;
+    padding: 1.3125rem 2.3125rem;
+}
+
+.about-us-bottom-content > div img {
+    margin-right: 2.25rem;
+}
+
+.about-us-bottom-content > div > div * {
+    margin: 0;
+}
+
+.about-us-bottom-content > div > div :first-child {
+    color: #bd945f;
+    font-size: 1.5rem; 
+    font-family: Gotham-Ultra, sans-serif;
+}
+
+.about-us-bottom-content > div > div :last-child {
+    font-size: 0.875rem; 
+}
+
+.news-and-partners {
+    width: 100%;
+    height: 72.5rem;
+    background-color: #ffffff;
+}
+
+.news-text p {
+    font-size: 1.9rem;
+    font-family: Gotham-Ultra, sans-serif;
+    line-height: 1;
+    position: relative;
+    margin-top: 6.68rem;
+    margin-bottom: 4.125rem;
+}
+
+.news-text p::after {
+    content: '';
+    position: absolute;
+    left: -0.75rem;
+    top: 2.3rem;
+    width: 123%;
+    height: 0.5625rem;
+    background-color: #bd945f;
+}
+
+/* .list-product :nth-child(1), .list-product :nth-child(2), .list-product :nth-child(3) {
+    margin-right: 2rem;
+} */
+
+.product-box a {
+    text-decoration: none;
+}
+
+.product-box {
+    width: 23%;
+}
+
+/* .product-box {
+    margin-right: 2rem;
+} */
+
+.product-hot > div > p {
+    display: inline-block;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    font-family: Gotham-Ultra, sans-serif;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.product-hot > div > p::after {
+    content: '';
+    position: absolute;
+    left: 4.8rem;
+    top: 2.3rem;
+    width: 50%;
+    height: 0.5625rem;
+    background-color: #bd945f;
+}
+
+.product-hot h4 {
+    color: #2c2e53;
+    font-size: 1rem;
+    font-family: Gotham-Ultra, sans-serif;
+    margin: 0.7rem 0 0 0;
+}
+
+.product-title :nth-child(2) {
+    margin: 0;
+    margin-top: -0.05rem;
+}
+
+.product-title :nth-child(3) {
+    color: #888888;
+    font-size: 0.75rem;
+    margin: 0;
+    margin-top: -0.05rem;
+}
+
+.product-title :nth-child(4) {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+.slick-arrow {
+    position: absolute;
+    font-size: 1.95rem;
+    line-height: 1;
+    padding: 0.4rem;
+    width: 1.95rem;
+    aspect-ratio: 1/1;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: #bd945f;
+}
+
+.slick-prev {
+    top: 7rem;
+    left: -4.125rem;
+}
+
+.slick-next {
+    top: 7rem;
+    right: -4.125rem;
+}

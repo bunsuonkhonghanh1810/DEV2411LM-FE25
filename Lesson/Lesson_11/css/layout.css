@@ -273,21 +273,21 @@ header {
     background-color: #bd945f;
 }
 
-/* .list-product :nth-child(1), .list-product :nth-child(2), .list-product :nth-child(3) {
+.list-product :nth-child(1), .list-product :nth-child(2), .list-product :nth-child(3) {
     margin-right: 2rem;
-} */
+}
 
 .product-box a {
     text-decoration: none;
 }
 
-.product-box {
-    width: 23%;
-}
-
 /* .product-box {
-    margin-right: 2rem;
+    width: 23%;
 } */
+
+.product-box {
+    margin-right: 2rem;
+}
 
 .product-hot > div > p {
     display: inline-block;
