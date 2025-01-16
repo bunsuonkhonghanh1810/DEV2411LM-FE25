@@ -297,6 +297,7 @@ header {
     line-height: 1;
     position: relative;
     margin-bottom: 2.5rem;
+    cursor: pointer;
 }
 
 .product-hot > div > p::after {
@@ -354,4 +355,8 @@ header {
 .slick-next {
     top: 7rem;
     right: -4.125rem;
+}
+
+ul.pagination * {
+    cursor: pointer;
 }

@@ -53,19 +53,90 @@ let products = [
         description: '4 ngăn, trắng gỗ',
         price: 2499000,
         image: 'images/drawer.jpg'
-    },{
-        id: 'SP09',
+    },
+    {
+        id: 'SP05',
         name: 'Giường châu âu 3',
         description: 'Size lớn, trắng sữa',
         price: 8999000,
         image: 'images/bed.jpg'
     },
     {
-        id: 'SP10',
+        id: 'SP06',
         name: 'Bàn làm việc 3',
         description: 'Size vừa, trắng nâu',
         price: 3999000,
         image: 'images/desk.jpg'
+    },
+    {
+        id: 'SP07',
+        name: 'Tủ quần áo 3',
+        description: '4 ngăn, trắng gỗ',
+        price: 12999000,
+        image: 'images/wardrobe.jpg'
+    },
+    {
+        id: 'SP08',
+        name: 'Kệ để đồ 3',
+        description: '4 ngăn, trắng gỗ',
+        price: 2499000,
+        image: 'images/drawer.jpg'
+    },
+    {
+        id: 'SP05',
+        name: 'Giường châu âu 4',
+        description: 'Size lớn, trắng sữa',
+        price: 8999000,
+        image: 'images/bed.jpg'
+    },
+    {
+        id: 'SP06',
+        name: 'Bàn làm việc 4',
+        description: 'Size vừa, trắng nâu',
+        price: 3999000,
+        image: 'images/desk.jpg'
+    },
+    {
+        id: 'SP07',
+        name: 'Tủ quần áo 4',
+        description: '4 ngăn, trắng gỗ',
+        price: 12999000,
+        image: 'images/wardrobe.jpg'
+    },
+    {
+        id: 'SP08',
+        name: 'Kệ để đồ 4',
+        description: '4 ngăn, trắng gỗ',
+        price: 2499000,
+        image: 'images/drawer.jpg'
+    },
+    {
+        id: 'SP05',
+        name: 'Giường châu âu 5',
+        description: 'Size lớn, trắng sữa',
+        price: 8999000,
+        image: 'images/bed.jpg'
+    },
+    {
+        id: 'SP06',
+        name: 'Bàn làm việc 5',
+        description: 'Size vừa, trắng nâu',
+        price: 3999000,
+        image: 'images/desk.jpg'
+    },
+    {
+        id: 'SP07',
+        name: 'Tủ quần áo 5',
+        description: '4 ngăn, trắng gỗ',
+        price: 12999000,
+        image: 'images/wardrobe.jpg'
+    },
+    {
+        id: 'SP08',
+        name: 'Kệ để đồ 5',
+        description: '4 ngăn, trắng gỗ',
+        price: 2499000,
+        image: 'images/drawer.jpg'
     },
 ]
 
@@ -186,21 +257,16 @@ $.fn.renderListPages = function() {
 $(products).renderPages();
 
 $.fn.removeVietnamese = function(str) {
-    return str
-               .trim()
-               .normalize("NFD")
-               .replace(/[\u0300-\u036f]/g, '')
-               .replace(/đ/g, 'd')
-               .replace(/Đ/g, 'D')
-               .toLowerCase();
+    return str.trim()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, '')
+              .replace(/đ/g, 'd')
+              .replace(/Đ/g, 'D')
+              .toLowerCase();
 }
 
 $('.input-group-text').on('click', function() {
-    let find = $('.form-control').val(); 
-    find = $().removeVietnamese(find);
-
-    if (!find) {
-    }
+    let find = $().removeVietnamese($('.form-control').val());
 
     let results = products.filter(product => {
         let productName = $().removeVietnamese(product.name);
@@ -208,4 +274,8 @@ $('.input-group-text').on('click', function() {
     });
 
     $(results).renderPages();
+})
+
+$('.product-hot > div > p').click(function() {
+    $(products).renderPages();
 })
