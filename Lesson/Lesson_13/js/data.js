@@ -276,6 +276,6 @@ $('.input-group-text').on('click', function() {
     $(results).renderPages();
 })
 
-$('.product-hot > div > p').click(function() {
+$('.product-hot > div > p').on('click', function() {
     $(products).renderPages();
 })
