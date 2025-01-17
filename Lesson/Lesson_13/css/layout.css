@@ -4,6 +4,7 @@
     font-family: Gotham-Medium, sans-serif;
     font-size: 16px;
     box-sizing: content-box;
+    transition: all 0.3s ease-out;
 }
 
 ::-webkit-scrollbar {
@@ -33,6 +34,10 @@
     width: calc(100vw * 0.0505);
 }
 
+.fixed-header .header-logo img {
+    width: calc(100vw * 0.035);
+}
+
 header {
     position: fixed;
     top: 0;
@@ -46,26 +51,32 @@ header {
 }
 
 .header-nav .nav > a {
+    color: black;
+    font-size: 1rem;
     padding: 0.5rem 1.687rem;
     position: relative;
+}
+
+.fixed-header .nav a {
+    font-size: 0.9rem;
 }
 
 .header-nav .nav > a::before {
     content: '';
     position: absolute;
     top: 1.75rem;
-    width: 69%;
+    width: 0%;
     height: 0.3125rem;
     background-color: #bd945f;
-    display: none;
+    transition: all 0.3s ease;
 }
 
-.header-nav .nav > a:hover::before, .header-nav .nav > a.active::before {
-    display: block;
+.header-nav .nav > a:hover::before {
+    width: 69%;
 }
 
 #banner {
-    margin-top: 8.75rem;
+    margin-top: calc(100vw * 0.0505 + 3rem);
     background-image: url('../images/banner.jpg');
     width: 100%;
     height: calc(100vw * 0.438);
@@ -75,7 +86,7 @@ header {
 }
 
 .banner-content {
-    margin-top: 8.5625rem;
+    margin-top: calc(100vw * 0.07287234);
     margin-left: 3.25rem;
 }
 
@@ -99,6 +110,7 @@ header {
 }
 
 .banner-content > :nth-child(3) {
+    font-size: 1rem;
     width: 34.5626rem;
     margin-bottom: 1.75rem;
     text-align: justify;
@@ -121,17 +133,26 @@ header {
     background-color: #f3f3f3;
 }
 
+.stand-out-brand .products-catalogue div {
+    width: 25%;
+}
+
 .products-catalogue {
     position: absolute;
     top: -3.6875rem;
-    width: 100%;
+    width: calc(100% - 1.5rem);
     height: 32.5rem;
     background-color: white;
 }
 
 .products-catalogue p {
+    font-size: 1rem;
     font-family: Gotham-Ultra, sans-serif;
     transition: all 0.5s ease;
+}
+
+.products-catalogue img {
+    width: calc(100vw * 0.08936);
 }
 
 .products-catalogue > div {
