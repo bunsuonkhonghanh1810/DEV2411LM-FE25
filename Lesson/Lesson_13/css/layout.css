@@ -44,6 +44,9 @@ header {
     background-color: white;
     width: 100%;
     z-index: 100;
+    -webkit-box-shadow: 0px 30px 100px -31px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 30px 100px -31px rgba(0,0,0,0.75);
+    box-shadow: 0px 30px 100px -31px rgba(0,0,0,0.75);
 }
 
 .header-nav .nav {
@@ -164,6 +167,8 @@ header {
 }
 
 .about-us {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 67.5rem;
     background-image: url("../images/about_us.jpg");
@@ -184,8 +189,16 @@ header {
     background-color: rgba(0, 0, 0, 0.72);
 }
 
+.about-us > div > div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3.25rem; 
+    width: 100%;
+    z-index: 1
+}
+
 .about-us-top {
-    margin-bottom: 6.5rem;
+    margin-bottom: calc(100vw * 0.04532);
 }
 
 .about-us-top-text p {
@@ -206,8 +219,24 @@ header {
     background-color: #bd945f;
 }
 
+.about-us-top-content {
+    gap: calc(100vw * 0.01649);
+}
+
+.about-us-top-content > div {
+    width: calc((100% - 100vw * 0.01649) / 2);
+}
+
 .about-us-top-content-left img {
-    width: 35.6875rem;
+    width: 100%;
+}
+
+.about-us-top-content-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
 }
 
 .about-us-top-content-right * {
@@ -216,8 +245,16 @@ header {
     line-height: 1;
 }
 
+.about-us-top-content-right > :nth-child(2), .about-us-top-content-right > :nth-child(3) {
+    width: 90%;
+}
+
+.about-us-top-content-right-picture div {
+    width: calc((100% 100vw * 0.0074468 * 3) / 4);
+}
+
 .about-us-top-content-right-picture img {
-    margin-right: 0.875rem;
+    width: 100%;
 }
 
 .about-us-bottom-text p {
@@ -239,13 +276,13 @@ header {
 }
 
 .about-us-bottom-content {
-    gap: 1.9375rem;
+    gap: calc(100vw * 0.01649);
 }
 
 .about-us-bottom-content > div {
     box-sizing: border-box;
-    width: 35.8125rem;
-    height: 7.0625rem;
+    width: calc((100% - 100vw * 0.01649) / 2);
+    height: calc(100vw * 0.06);
     background-color: white;
     padding: 1.3125rem 2.3125rem;
 }
@@ -308,6 +345,18 @@ header {
 /* .product-box {
     margin-right: 2rem;
 } */
+
+.product-image {
+    width: 100%;
+}
+
+.product-image img {
+    width: 100%;
+}
+
+.fa-star {
+    font-size: 1rem;
+}
 
 .product-hot > div > p {
     display: inline-block;
