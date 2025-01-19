@@ -316,7 +316,6 @@ header {
     font-family: Gotham-Ultra, sans-serif;
     line-height: 1;
     position: relative;
-    margin-top: 6.68rem;
     margin-bottom: 4.125rem;
 }
 
@@ -328,6 +327,14 @@ header {
     width: 123%;
     height: 0.5625rem;
     background-color: #bd945f;
+}
+
+.news-and-partners div {
+    height: 100%;
+}
+
+.news-and-partners .news {
+    height: 67.414%;
 }
 
 /* .list-product :nth-child(1), .list-product :nth-child(2), .list-product :nth-child(3) {
